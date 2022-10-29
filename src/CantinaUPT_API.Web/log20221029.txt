@@ -1,0 +1,155 @@
+2022-10-29 20:48:17.689 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-29 20:48:19.377 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-10-29 20:48:19.674 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2022-10-29 20:48:19.845 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Projects" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Projects" PRIMARY KEY AUTOINCREMENT,
+    "Name" TEXT NOT NULL,
+    "Priority" INTEGER NOT NULL
+);
+2022-10-29 20:48:19.845 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "ToDoItems" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_ToDoItems" PRIMARY KEY AUTOINCREMENT,
+    "Title" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "IsDone" INTEGER NOT NULL,
+    "ProjectId" INTEGER NULL,
+    CONSTRAINT "FK_ToDoItems_Projects_ProjectId" FOREIGN KEY ("ProjectId") REFERENCES "Projects" ("Id")
+);
+2022-10-29 20:48:19.845 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_ToDoItems_ProjectId" ON "ToDoItems" ("ProjectId");
+2022-10-29 20:48:19.875 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-10-29 20:48:20.202 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-10-29 20:48:20.267 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Name", "p"."Priority"
+FROM "Projects" AS "p"
+2022-10-29 20:48:20.272 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Description", "t"."IsDone", "t"."ProjectId", "t"."Title"
+FROM "ToDoItems" AS "t"
+2022-10-29 20:48:20.599 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[@p0='?' (Size = 12), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Projects" ("Name", "Priority")
+VALUES (@p0, @p1);
+SELECT "Id"
+FROM "Projects"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+2022-10-29 20:48:20.637 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p2='?' (Size = 31), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 18)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ToDoItems" ("Description", "IsDone", "ProjectId", "Title")
+VALUES (@p2, @p3, @p4, @p5);
+SELECT "Id"
+FROM "ToDoItems"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+2022-10-29 20:48:20.638 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 81), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 15)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ToDoItems" ("Description", "IsDone", "ProjectId", "Title")
+VALUES (@p0, @p1, @p2, @p3);
+SELECT "Id"
+FROM "ToDoItems"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+2022-10-29 20:48:20.639 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 59), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32), @p3='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ToDoItems" ("Description", "IsDone", "ProjectId", "Title")
+VALUES (@p0, @p1, @p2, @p3);
+SELECT "Id"
+FROM "ToDoItems"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+2022-10-29 20:48:20.802 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-29 20:48:20.802 +03:00 [INF] Hosting environment: Development
+2022-10-29 20:48:20.802 +03:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2022-10-29 20:48:20.842 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-10-29 20:48:20.914 +03:00 [WRN] Failed to determine the https port for redirect.
+2022-10-29 20:48:20.956 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-10-29 20:48:20.967 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2022-10-29 20:48:20.981 +03:00 [INF] Executing ViewResult, running view Index.
+2022-10-29 20:48:21.246 +03:00 [INF] Executed ViewResult - view Index executed in 268.1359ms.
+2022-10-29 20:48:21.252 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 284.5814ms
+2022-10-29 20:48:21.253 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-10-29 20:48:21.374 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/CantinaUPT_API.Web.styles.css?v=WEqNqzZ3UpuAc7H7SkjxwOizCgkYhlY1C00A3X0rFVs - -
+2022-10-29 20:48:21.374 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.min.css - -
+2022-10-29 20:48:21.375 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - -
+2022-10-29 20:48:21.401 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 561.4614ms
+2022-10-29 20:48:21.438 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.min.js - -
+2022-10-29 20:48:21.444 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-10-29 20:48:21.445 +03:00 [INF] Sending file. Request path: '/CantinaUPT_API.Web.styles.css'. Physical path: 'C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\obj\Debug\net6.0\scopedcss\bundle\CantinaUPT_API.Web.styles.css'
+2022-10-29 20:48:21.445 +03:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\wwwroot\css\site.css'
+2022-10-29 20:48:21.445 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2022-10-29 20:48:21.445 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/CantinaUPT_API.Web.styles.css?v=WEqNqzZ3UpuAc7H7SkjxwOizCgkYhlY1C00A3X0rFVs - - - 200 1135 text/css 71.2086ms
+2022-10-29 20:48:21.445 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - - - 200 194 text/css 70.6872ms
+2022-10-29 20:48:21.451 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 7.1155ms
+2022-10-29 20:48:21.457 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-10-29 20:48:21.477 +03:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2022-10-29 20:48:21.477 +03:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2022-10-29 20:48:21.480 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 200 78474 application/javascript 34.6109ms
+2022-10-29 20:48:21.486 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.min.css - - - 200 162726 text/css 111.6776ms
+2022-10-29 20:48:21.501 +03:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\wwwroot\lib\jquery\dist\jquery.min.js'
+2022-10-29 20:48:21.504 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.min.js - - - 200 89478 application/javascript 65.9885ms
+2022-10-29 20:48:21.573 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 116.3524ms
+2022-10-29 20:49:28.099 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-29 20:49:29.131 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-10-29 20:49:29.257 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-10-29 20:49:29.294 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-10-29 20:49:29.600 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-10-29 20:49:29.697 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-29 20:49:29.697 +03:00 [INF] Hosting environment: Development
+2022-10-29 20:49:29.697 +03:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2022-10-29 20:49:29.723 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-10-29 20:49:29.785 +03:00 [WRN] Failed to determine the https port for redirect.
+2022-10-29 20:49:29.822 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-10-29 20:49:29.829 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2022-10-29 20:49:29.838 +03:00 [INF] Executing ViewResult, running view Index.
+2022-10-29 20:49:30.034 +03:00 [INF] Executed ViewResult - view Index executed in 196.3781ms.
+2022-10-29 20:49:30.040 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 210.8134ms
+2022-10-29 20:49:30.041 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-10-29 20:49:30.097 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/CantinaUPT_API.Web.styles.css?v=WEqNqzZ3UpuAc7H7SkjxwOizCgkYhlY1C00A3X0rFVs - -
+2022-10-29 20:49:30.109 +03:00 [INF] The file /CantinaUPT_API.Web.styles.css was not modified
+2022-10-29 20:49:30.111 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/CantinaUPT_API.Web.styles.css?v=WEqNqzZ3UpuAc7H7SkjxwOizCgkYhlY1C00A3X0rFVs - - - 304 - text/css 13.4205ms
+2022-10-29 20:49:30.112 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 391.3327ms
+2022-10-29 20:49:30.158 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-10-29 20:49:30.161 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-10-29 20:49:30.171 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 10.1514ms
+2022-10-29 20:49:30.196 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 37.3112ms
+2022-10-29 20:49:50.389 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-29 20:49:51.462 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-10-29 20:49:51.584 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2022-10-29 20:49:51.622 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.8' with options: None
+2022-10-29 20:49:51.937 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2022-10-29 20:49:52.031 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-29 20:49:52.031 +03:00 [INF] Hosting environment: Development
+2022-10-29 20:49:52.032 +03:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2022-10-29 20:49:52.063 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-10-29 20:49:52.126 +03:00 [WRN] Failed to determine the https port for redirect.
+2022-10-29 20:49:52.164 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-10-29 20:49:52.171 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2022-10-29 20:49:52.179 +03:00 [INF] Executing ViewResult, running view Index.
+2022-10-29 20:49:52.386 +03:00 [INF] Executed ViewResult - view Index executed in 207.9743ms.
+2022-10-29 20:49:52.393 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 221.4997ms
+2022-10-29 20:49:52.394 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-10-29 20:49:52.434 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.min.css - -
+2022-10-29 20:49:52.436 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - -
+2022-10-29 20:49:52.442 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/CantinaUPT_API.Web.styles.css?v=WEqNqzZ3UpuAc7H7SkjxwOizCgkYhlY1C00A3X0rFVs - -
+2022-10-29 20:49:52.451 +03:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2022-10-29 20:49:52.451 +03:00 [INF] The file /css/site.css was not modified
+2022-10-29 20:49:52.452 +03:00 [INF] The file /CantinaUPT_API.Web.styles.css was not modified
+2022-10-29 20:49:52.454 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/CantinaUPT_API.Web.styles.css?v=WEqNqzZ3UpuAc7H7SkjxwOizCgkYhlY1C00A3X0rFVs - - - 304 - text/css 10.6716ms
+2022-10-29 20:49:52.454 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - - - 304 - text/css 16.6531ms
+2022-10-29 20:49:52.454 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.min.css - - - 304 - text/css 18.6026ms
+2022-10-29 20:49:52.462 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 402.8339ms
+2022-10-29 20:49:52.498 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2022-10-29 20:49:52.498 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-10-29 20:49:52.498 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.min.js - -
+2022-10-29 20:49:52.502 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-10-29 20:49:52.503 +03:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2022-10-29 20:49:52.503 +03:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2022-10-29 20:49:52.503 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.min.js - - - 304 - application/javascript 4.9327ms
+2022-10-29 20:49:52.503 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 304 - application/javascript 5.1178ms
+2022-10-29 20:49:52.512 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 9.9394ms
+2022-10-29 20:49:52.543 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 44.6416ms
