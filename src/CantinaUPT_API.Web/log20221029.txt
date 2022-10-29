@@ -293,3 +293,62 @@ WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
 2022-10-29 21:09:52.579 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
 2022-10-29 21:09:52.589 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 10.2133ms
 2022-10-29 21:09:52.620 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.3930ms
+2022-10-29 21:22:16.240 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-29 21:22:17.338 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-10-29 21:22:17.763 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-10-29 21:22:17.822 +03:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-10-29 21:22:17.837 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-10-29 21:22:18.202 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2022-10-29 21:22:18.308 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-29 21:22:18.308 +03:00 [INF] Hosting environment: Development
+2022-10-29 21:22:18.308 +03:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2022-10-29 21:22:18.329 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-10-29 21:22:18.387 +03:00 [WRN] Failed to determine the https port for redirect.
+2022-10-29 21:22:18.415 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-10-29 21:22:18.422 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2022-10-29 21:22:18.430 +03:00 [INF] Executing ViewResult, running view Index.
+2022-10-29 21:22:18.612 +03:00 [INF] Executed ViewResult - view Index executed in 181.5572ms.
+2022-10-29 21:22:18.618 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 195.301ms
+2022-10-29 21:22:18.618 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-10-29 21:22:18.669 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - -
+2022-10-29 21:22:18.669 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/CantinaUPT_API.Web.styles.css?v=WEqNqzZ3UpuAc7H7SkjxwOizCgkYhlY1C00A3X0rFVs - -
+2022-10-29 21:22:18.669 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.min.css - -
+2022-10-29 21:22:18.682 +03:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2022-10-29 21:22:18.682 +03:00 [INF] The file /CantinaUPT_API.Web.styles.css was not modified
+2022-10-29 21:22:18.682 +03:00 [INF] The file /css/site.css was not modified
+2022-10-29 21:22:18.685 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.min.css - - - 304 - text/css 14.9363ms
+2022-10-29 21:22:18.685 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/CantinaUPT_API.Web.styles.css?v=WEqNqzZ3UpuAc7H7SkjxwOizCgkYhlY1C00A3X0rFVs - - - 304 - text/css 14.9491ms
+2022-10-29 21:22:18.685 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - - - 304 - text/css 14.9114ms
+2022-10-29 21:22:18.695 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 369.4131ms
+2022-10-29 21:22:18.729 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2022-10-29 21:22:18.729 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-10-29 21:22:18.729 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.min.js - -
+2022-10-29 21:22:18.731 +03:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2022-10-29 21:22:18.731 +03:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2022-10-29 21:22:18.731 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 304 - application/javascript 2.4269ms
+2022-10-29 21:22:18.731 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.min.js - - - 304 - application/javascript 2.3947ms
+2022-10-29 21:22:18.735 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 6.7118ms
+2022-10-29 21:22:18.738 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-10-29 21:22:18.781 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 43.1860ms
