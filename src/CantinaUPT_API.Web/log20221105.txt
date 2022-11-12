@@ -1,0 +1,104 @@
+2022-11-05 15:31:05.391 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-11-05 15:31:16.124 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-11-05 15:31:16.508 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-11-05 15:31:16.535 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-11-05 15:31:16.538 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-11-05 15:31:16.664 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2022-11-05 15:31:16.666 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-11-05 15:31:16.667 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-11-05 15:31:16.670 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2022-11-05 15:31:16.684 +02:00 [INF] Applying migration '20221105133105_initial-tables'.
+2022-11-05 15:31:16.746 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Canteens] (
+    [Id] int NOT NULL IDENTITY,
+    [Location] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Canteens] PRIMARY KEY ([Id])
+);
+2022-11-05 15:31:16.747 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Disponibilities] (
+    [Id] int NOT NULL IDENTITY,
+    [MealId] int NOT NULL,
+    [CanteenId] int NOT NULL,
+    [Disposable] bit NOT NULL,
+    CONSTRAINT [PK_Disponibilities] PRIMARY KEY ([Id])
+);
+2022-11-05 15:31:16.752 +02:00 [ERR] Failed executing DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Projects] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Priority] int NOT NULL,
+    CONSTRAINT [PK_Projects] PRIMARY KEY ([Id])
+);
+2022-11-05 15:32:50.581 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-11-05 15:32:50.872 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-11-05 15:32:50.900 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-11-05 15:32:50.903 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-11-05 15:32:50.904 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-11-05 15:32:50.920 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2022-11-05 15:32:50.933 +02:00 [INF] Applying migration '20221105133105_initial-tables'.
+2022-11-05 15:32:51.029 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Canteens] (
+    [Id] int NOT NULL IDENTITY,
+    [Location] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Canteens] PRIMARY KEY ([Id])
+);
+2022-11-05 15:32:51.031 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Disponibilities] (
+    [Id] int NOT NULL IDENTITY,
+    [MealId] int NOT NULL,
+    [CanteenId] int NOT NULL,
+    [Disposable] bit NOT NULL,
+    CONSTRAINT [PK_Disponibilities] PRIMARY KEY ([Id])
+);
+2022-11-05 15:32:51.040 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [DailyMenus] (
+    [Id] int NOT NULL IDENTITY,
+    [date] datetime2 NOT NULL,
+    [IsActive] bit NOT NULL,
+    [CanteenId] int NULL,
+    CONSTRAINT [PK_DailyMenus] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_DailyMenus_Canteens_CanteenId] FOREIGN KEY ([CanteenId]) REFERENCES [Canteens] ([Id])
+);
+2022-11-05 15:32:51.042 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Meals] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [Price] float NOT NULL,
+    [Portion] int NOT NULL,
+    [Category] int NOT NULL,
+    [CanteenId] int NULL,
+    [DailyMenuId] int NULL,
+    CONSTRAINT [PK_Meals] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Meals_Canteens_CanteenId] FOREIGN KEY ([CanteenId]) REFERENCES [Canteens] ([Id]),
+    CONSTRAINT [FK_Meals_DailyMenus_DailyMenuId] FOREIGN KEY ([DailyMenuId]) REFERENCES [DailyMenus] ([Id])
+);
+2022-11-05 15:32:51.043 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_DailyMenus_CanteenId] ON [DailyMenus] ([CanteenId]);
+2022-11-05 15:32:51.043 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Meals_CanteenId] ON [Meals] ([CanteenId]);
+2022-11-05 15:32:51.044 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Meals_DailyMenuId] ON [Meals] ([DailyMenuId]);
+2022-11-05 15:32:51.080 +02:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20221105133105_initial-tables', N'6.0.8');
