@@ -20,6 +20,11 @@ public class AppDbContext : DbContext
   public DbSet<ToDoItem> ToDoItems => Set<ToDoItem>();
   public DbSet<Project> Projects => Set<Project>();
 
+  public DbSet<Meal> Meals => Set<Meal>();
+  public DbSet<Canteen> Canteens => Set<Canteen>();
+  public DbSet<Disponibility> Disponibilities => Set<Disponibility>();
+  public DbSet<DailyMenu> DailyMenus => Set<DailyMenu>();
+
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
     base.OnModelCreating(modelBuilder);
