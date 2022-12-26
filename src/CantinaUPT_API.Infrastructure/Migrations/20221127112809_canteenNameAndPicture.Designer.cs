@@ -4,6 +4,7 @@ using CantinaUPT_API.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CantinaUPT_API.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221127112809_canteenNameAndPicture")]
+    partial class canteenNameAndPicture
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,35 +47,6 @@ namespace CantinaUPT_API.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Canteens");
-                });
-
-            modelBuilder.Entity("CantinaUPT_API.Core.ProjectAggregate.CartItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("MealId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MealId");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("CartItems");
                 });
 
             modelBuilder.Entity("CantinaUPT_API.Core.ProjectAggregate.DailyMenu", b =>
@@ -166,31 +139,6 @@ namespace CantinaUPT_API.Infrastructure.Migrations
                     b.ToTable("Meals");
                 });
 
-            modelBuilder.Entity("CantinaUPT_API.Core.ProjectAggregate.Order", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<double>("TotalPrice")
-                        .HasColumnType("float");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Orders");
-                });
-
             modelBuilder.Entity("CantinaUPT_API.Core.ProjectAggregate.Project", b =>
                 {
                     b.Property<int>("Id")
@@ -241,54 +189,6 @@ namespace CantinaUPT_API.Infrastructure.Migrations
                     b.ToTable("ToDoItems");
                 });
 
-            modelBuilder.Entity("CantinaUPT_API.Core.ProjectAggregate.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Firstname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Lastname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("CantinaUPT_API.Core.ProjectAggregate.CartItem", b =>
-                {
-                    b.HasOne("CantinaUPT_API.Core.ProjectAggregate.Meal", "Meal")
-                        .WithMany()
-                        .HasForeignKey("MealId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CantinaUPT_API.Core.ProjectAggregate.Order", null)
-                        .WithMany("CartItems")
-                        .HasForeignKey("OrderId");
-
-                    b.Navigation("Meal");
-                });
-
             modelBuilder.Entity("CantinaUPT_API.Core.ProjectAggregate.DailyMenu", b =>
                 {
                     b.HasOne("CantinaUPT_API.Core.ProjectAggregate.Canteen", null)
@@ -324,11 +224,6 @@ namespace CantinaUPT_API.Infrastructure.Migrations
             modelBuilder.Entity("CantinaUPT_API.Core.ProjectAggregate.DailyMenu", b =>
                 {
                     b.Navigation("meals");
-                });
-
-            modelBuilder.Entity("CantinaUPT_API.Core.ProjectAggregate.Order", b =>
-                {
-                    b.Navigation("CartItems");
                 });
 
             modelBuilder.Entity("CantinaUPT_API.Core.ProjectAggregate.Project", b =>

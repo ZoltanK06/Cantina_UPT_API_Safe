@@ -1,7 +1,10 @@
-﻿using Ardalis.ListStartupServices;
+﻿using System.Reflection;
+using Ardalis.ListStartupServices;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using CantinaUPT_API.Core;
+using CantinaUPT_API.Core.Interfaces;
+using CantinaUPT_API.Core.Services;
 using CantinaUPT_API.Infrastructure;
 using CantinaUPT_API.Infrastructure.Data;
 using CantinaUPT_API.Web;
@@ -32,6 +35,18 @@ builder.Services.AddSwaggerGen(c =>
   c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
   c.EnableAnnotations();
 });
+
+builder.Services.AddScoped<IMealService, MealService>();
+builder.Services.AddScoped<ICanteenService, CanteenService>();
+builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+builder.Services.AddCors(c => c.AddPolicy("corspolicy", build =>
+{
+  build.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:19006");
+}));
 
 // add list services for diagnostic purposes - see https://github.com/ardalis/AspNetCoreStartupServices
 builder.Services.Configure<ServiceConfig>(config =>
@@ -66,6 +81,7 @@ else
 app.UseRouting();
 
 app.UseHttpsRedirection();
+app.UseCors("corspolicy");
 app.UseStaticFiles();
 app.UseCookiePolicy();
 
