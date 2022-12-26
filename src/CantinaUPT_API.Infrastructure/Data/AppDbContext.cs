@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Dynamic;
+using System.Reflection;
 using CantinaUPT_API.Core.ProjectAggregate;
 using CantinaUPT_API.SharedKernel;
 using CantinaUPT_API.SharedKernel.Interfaces;
@@ -24,6 +25,9 @@ public class AppDbContext : DbContext
   public DbSet<Canteen> Canteens => Set<Canteen>();
   public DbSet<Disponibility> Disponibilities => Set<Disponibility>();
   public DbSet<DailyMenu> DailyMenus => Set<DailyMenu>();
+  public DbSet<CartItem> CartItems => Set<CartItem>();
+  public DbSet<User> Users => Set<User>();
+  public DbSet<Order> Orders => Set<Order>();
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {

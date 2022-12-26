@@ -4,6 +4,7 @@ using CantinaUPT_API.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CantinaUPT_API.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221209105635_orders-and-users")]
+    partial class ordersandusers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -177,9 +179,6 @@ namespace CantinaUPT_API.Infrastructure.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
                     b.Property<double>("TotalPrice")
                         .HasColumnType("float");
 
@@ -187,6 +186,8 @@ namespace CantinaUPT_API.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -305,6 +306,17 @@ namespace CantinaUPT_API.Infrastructure.Migrations
                     b.HasOne("CantinaUPT_API.Core.ProjectAggregate.DailyMenu", null)
                         .WithMany("meals")
                         .HasForeignKey("DailyMenuId");
+                });
+
+            modelBuilder.Entity("CantinaUPT_API.Core.ProjectAggregate.Order", b =>
+                {
+                    b.HasOne("CantinaUPT_API.Core.ProjectAggregate.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CantinaUPT_API.Core.ProjectAggregate.ToDoItem", b =>

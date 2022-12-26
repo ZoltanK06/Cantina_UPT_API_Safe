@@ -1,0 +1,846 @@
+2022-12-05 12:14:23.620 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 12:14:36.841 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 12:14:37.288 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-12-05 12:14:37.314 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-12-05 12:14:37.317 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-12-05 12:14:37.318 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-12-05 12:14:37.334 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2022-12-05 12:14:37.348 +02:00 [INF] Applying migration '20221205101423_Cart'.
+2022-12-05 12:14:37.419 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [CartItem] (
+    [Id] int NOT NULL IDENTITY,
+    [MealId] int NOT NULL,
+    [Quantity] int NOT NULL,
+    CONSTRAINT [PK_CartItem] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_CartItem_Meals_MealId] FOREIGN KEY ([MealId]) REFERENCES [Meals] ([Id]) ON DELETE CASCADE
+);
+2022-12-05 12:14:37.421 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Cart] (
+    [Id] int NOT NULL IDENTITY,
+    [CartItemId] int NOT NULL,
+    CONSTRAINT [PK_Cart] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Cart_CartItem_CartItemId] FOREIGN KEY ([CartItemId]) REFERENCES [CartItem] ([Id]) ON DELETE CASCADE
+);
+2022-12-05 12:14:37.425 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Cart_CartItemId] ON [Cart] ([CartItemId]);
+2022-12-05 12:14:37.426 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_CartItem_MealId] ON [CartItem] ([MealId]);
+2022-12-05 12:14:37.427 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20221205101423_Cart', N'6.0.8');
+2022-12-05 12:23:04.465 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 12:23:50.872 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 12:23:51.156 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-12-05 12:23:51.182 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-12-05 12:23:51.186 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-12-05 12:23:51.186 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-12-05 12:23:51.198 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2022-12-05 12:23:51.211 +02:00 [INF] Applying migration '20221205102304_deleteCart'.
+2022-12-05 12:23:51.267 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [CartItem] DROP CONSTRAINT [FK_CartItem_Meals_MealId];
+2022-12-05 12:23:51.269 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP TABLE [Cart];
+2022-12-05 12:23:51.274 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [CartItem] DROP CONSTRAINT [PK_CartItem];
+2022-12-05 12:23:51.405 +02:00 [INF] Executed DbCommand (131ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[CartItem]', N'CartItems';
+2022-12-05 12:23:51.408 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[CartItems].[IX_CartItem_MealId]', N'IX_CartItems_MealId', N'INDEX';
+2022-12-05 12:23:51.410 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [CartItems] ADD CONSTRAINT [PK_CartItems] PRIMARY KEY ([Id]);
+2022-12-05 12:23:51.412 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [CartItems] ADD CONSTRAINT [FK_CartItems_Meals_MealId] FOREIGN KEY ([MealId]) REFERENCES [Meals] ([Id]) ON DELETE CASCADE;
+2022-12-05 12:23:51.413 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20221205102304_deleteCart', N'6.0.8');
+2022-12-05 12:25:46.844 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 12:25:53.648 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 12:25:53.945 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-12-05 12:25:53.969 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-12-05 12:25:53.972 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-12-05 12:25:53.972 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-12-05 12:25:53.984 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2022-12-05 12:25:53.996 +02:00 [INF] Applying migration '20221205102546_update-cartItem'.
+2022-12-05 12:25:54.052 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [CartItems] ADD [UserId] int NOT NULL DEFAULT 0;
+2022-12-05 12:25:54.053 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20221205102546_update-cartItem', N'6.0.8');
+2022-12-05 13:02:10.065 +02:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-12-05 13:02:11.328 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 13:02:11.813 +02:00 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-12-05 13:02:11.880 +02:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-12-05 13:02:11.928 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 13:02:12.370 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2022-12-05 13:02:12.568 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-05 13:02:12.568 +02:00 [INF] Hosting environment: Development
+2022-12-05 13:02:12.576 +02:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2022-12-05 13:02:12.618 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-12-05 13:02:12.692 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-12-05 13:02:12.731 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 13:02:12.742 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2022-12-05 13:02:12.756 +02:00 [INF] Executing ViewResult, running view Index.
+2022-12-05 13:02:13.034 +02:00 [INF] Executed ViewResult - view Index executed in 280.2605ms.
+2022-12-05 13:02:13.041 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 298.4973ms
+2022-12-05 13:02:13.042 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 13:02:13.135 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 521.4643ms
+2022-12-05 13:02:13.202 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-12-05 13:02:13.202 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-12-05 13:02:13.213 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 10.2013ms
+2022-12-05 13:02:13.274 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 71.5197ms
+2022-12-05 13:03:13.263 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3
+2022-12-05 13:03:13.277 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 13:03:13.299 +02:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 13:03:13.549 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 13:03:13.780 +02:00 [INF] Executed DbCommand (67ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[CanteenId], [m].[Category], [m].[DailyMenuId], [m].[Description], [m].[Name], [m].[PictureURL], [m].[Portion], [m].[Price]
+FROM [Meals] AS [m]
+WHERE [m].[Id] = @__p_0
+2022-12-05 13:03:14.076 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [CartItems] ([MealId], [Quantity], [UserId])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [CartItems]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-12-05 13:03:14.155 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 13:03:14.155 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web) in 856.2648ms
+2022-12-05 13:03:14.155 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 13:03:14.162 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3 - 200 - - 898.8741ms
+2022-12-05 15:42:30.504 +02:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-12-05 15:42:31.787 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 15:42:32.224 +02:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-12-05 15:42:32.291 +02:00 [INF] Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-12-05 15:42:32.312 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 15:42:32.717 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2022-12-05 15:42:32.818 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-05 15:42:32.819 +02:00 [INF] Hosting environment: Development
+2022-12-05 15:42:32.819 +02:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2022-12-05 15:42:32.846 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-12-05 15:42:32.912 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-12-05 15:42:32.941 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 15:42:32.948 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2022-12-05 15:42:32.956 +02:00 [INF] Executing ViewResult, running view Index.
+2022-12-05 15:42:33.145 +02:00 [INF] Executed ViewResult - view Index executed in 188.6173ms.
+2022-12-05 15:42:33.151 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 202.4872ms
+2022-12-05 15:42:33.152 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 15:42:33.210 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 367.1721ms
+2022-12-05 15:42:33.283 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-12-05 15:42:33.283 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-12-05 15:42:33.292 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 7.6104ms
+2022-12-05 15:42:33.338 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 54.8151ms
+2022-12-05 15:42:42.833 +02:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/IncreaseQuantity application/json 3
+2022-12-05 15:42:42.836 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.IncreaseQuantity (CantinaUPT_API.Web)'
+2022-12-05 15:42:42.848 +02:00 [INF] Route matched with {action = "IncreaseQuantity", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] IncreaseQuantity(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 15:42:43.075 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 15:42:43.281 +02:00 [INF] Executed DbCommand (61ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[MealId], [c].[Quantity], [c].[UserId]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2022-12-05 15:42:43.483 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [MealId] = @p0, [Quantity] = @p1, [UserId] = @p2
+WHERE [Id] = @p3;
+SELECT @@ROWCOUNT;
+2022-12-05 15:42:43.530 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 15:42:43.530 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.IncreaseQuantity (CantinaUPT_API.Web) in 681.7231ms
+2022-12-05 15:42:43.530 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.IncreaseQuantity (CantinaUPT_API.Web)'
+2022-12-05 15:42:43.538 +02:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/IncreaseQuantity application/json 3 - 200 - - 704.8067ms
+2022-12-05 15:43:09.139 +02:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/IncreaseQuantity application/json 3
+2022-12-05 15:43:09.147 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.IncreaseQuantity (CantinaUPT_API.Web)'
+2022-12-05 15:43:09.147 +02:00 [INF] Route matched with {action = "IncreaseQuantity", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] IncreaseQuantity(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 15:43:09.149 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 15:43:09.169 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[MealId], [c].[Quantity], [c].[UserId]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2022-12-05 15:43:09.179 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [MealId] = @p0, [Quantity] = @p1, [UserId] = @p2
+WHERE [Id] = @p3;
+SELECT @@ROWCOUNT;
+2022-12-05 15:43:09.187 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 15:43:09.187 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.IncreaseQuantity (CantinaUPT_API.Web) in 40.1517ms
+2022-12-05 15:43:09.187 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.IncreaseQuantity (CantinaUPT_API.Web)'
+2022-12-05 15:43:09.188 +02:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/IncreaseQuantity application/json 3 - 200 - - 49.2448ms
+2022-12-05 15:43:21.841 +02:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/DecreaseQuantityOrDelete application/json 3
+2022-12-05 15:43:21.841 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.DecreaseQuantityOrDelete (CantinaUPT_API.Web)'
+2022-12-05 15:43:21.844 +02:00 [INF] Route matched with {action = "DecreaseQuantityOrDelete", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DecreaseQuantityOrDelete(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 15:43:21.846 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 15:43:21.849 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[MealId], [c].[Quantity], [c].[UserId]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2022-12-05 15:43:21.853 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [MealId] = @p0, [Quantity] = @p1, [UserId] = @p2
+WHERE [Id] = @p3;
+SELECT @@ROWCOUNT;
+2022-12-05 15:43:21.860 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 15:43:21.860 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.DecreaseQuantityOrDelete (CantinaUPT_API.Web) in 16.1823ms
+2022-12-05 15:43:21.860 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.DecreaseQuantityOrDelete (CantinaUPT_API.Web)'
+2022-12-05 15:43:21.861 +02:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/DecreaseQuantityOrDelete application/json 3 - 200 - - 20.2237ms
+2022-12-05 15:43:26.090 +02:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/DecreaseQuantityOrDelete application/json 3
+2022-12-05 15:43:26.090 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.DecreaseQuantityOrDelete (CantinaUPT_API.Web)'
+2022-12-05 15:43:26.090 +02:00 [INF] Route matched with {action = "DecreaseQuantityOrDelete", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DecreaseQuantityOrDelete(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 15:43:26.091 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 15:43:26.096 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[MealId], [c].[Quantity], [c].[UserId]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2022-12-05 15:43:26.131 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [MealId] = @p0, [Quantity] = @p1, [UserId] = @p2
+WHERE [Id] = @p3;
+SELECT @@ROWCOUNT;
+2022-12-05 15:43:26.132 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 15:43:26.133 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.DecreaseQuantityOrDelete (CantinaUPT_API.Web) in 42.5714ms
+2022-12-05 15:43:26.133 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.DecreaseQuantityOrDelete (CantinaUPT_API.Web)'
+2022-12-05 15:43:26.134 +02:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/DecreaseQuantityOrDelete application/json 3 - 200 - - 43.9564ms
+2022-12-05 15:43:30.293 +02:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/DecreaseQuantityOrDelete application/json 3
+2022-12-05 15:43:30.293 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.DecreaseQuantityOrDelete (CantinaUPT_API.Web)'
+2022-12-05 15:43:30.293 +02:00 [INF] Route matched with {action = "DecreaseQuantityOrDelete", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DecreaseQuantityOrDelete(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 15:43:30.295 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 15:43:30.297 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[MealId], [c].[Quantity], [c].[UserId]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2022-12-05 15:43:30.312 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [CartItems]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2022-12-05 15:43:30.327 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 15:43:30.328 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.DecreaseQuantityOrDelete (CantinaUPT_API.Web) in 34.0584ms
+2022-12-05 15:43:30.328 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.DecreaseQuantityOrDelete (CantinaUPT_API.Web)'
+2022-12-05 15:43:30.329 +02:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/DecreaseQuantityOrDelete application/json 3 - 200 - - 35.4913ms
+2022-12-05 15:43:34.954 +02:00 [INF] Request starting HTTP/1.1 PUT http://localhost:57678/api/DecreaseQuantityOrDelete application/json 3
+2022-12-05 15:43:34.954 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.DecreaseQuantityOrDelete (CantinaUPT_API.Web)'
+2022-12-05 15:43:34.954 +02:00 [INF] Route matched with {action = "DecreaseQuantityOrDelete", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DecreaseQuantityOrDelete(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 15:43:34.955 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 15:43:34.970 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[MealId], [c].[Quantity], [c].[UserId]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2022-12-05 15:43:40.385 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2022-12-05 15:43:40.478 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.DecreaseQuantityOrDelete (CantinaUPT_API.Web) in 5524.3451ms
+2022-12-05 15:43:40.478 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.DecreaseQuantityOrDelete (CantinaUPT_API.Web)'
+2022-12-05 15:43:40.481 +02:00 [INF] Request finished HTTP/1.1 PUT http://localhost:57678/api/DecreaseQuantityOrDelete application/json 3 - 500 200 application/problem+json;+charset=utf-8 5527.1533ms
+2022-12-05 16:47:07.290 +02:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-12-05 16:47:08.458 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:47:08.892 +02:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-12-05 16:47:08.958 +02:00 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-12-05 16:47:08.974 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:47:09.336 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2022-12-05 16:47:09.439 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-05 16:47:09.439 +02:00 [INF] Hosting environment: Development
+2022-12-05 16:47:09.440 +02:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2022-12-05 16:47:09.469 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-12-05 16:47:09.529 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-12-05 16:47:09.557 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 16:47:09.564 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2022-12-05 16:47:09.572 +02:00 [INF] Executing ViewResult, running view Index.
+2022-12-05 16:47:09.763 +02:00 [INF] Executed ViewResult - view Index executed in 190.3382ms.
+2022-12-05 16:47:09.769 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 204.6591ms
+2022-12-05 16:47:09.770 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 16:47:09.828 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 361.8335ms
+2022-12-05 16:47:09.902 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-12-05 16:47:09.902 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-12-05 16:47:09.907 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 4.8301ms
+2022-12-05 16:47:09.946 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 43.5639ms
+2022-12-05 16:56:30.967 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3
+2022-12-05 16:56:30.980 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 16:56:30.999 +02:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 16:56:31.233 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:56:31.469 +02:00 [INF] Executed DbCommand (53ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[CanteenId], [m].[Category], [m].[DailyMenuId], [m].[Description], [m].[Name], [m].[PictureURL], [m].[Portion], [m].[Price]
+FROM [Meals] AS [m]
+WHERE [m].[Id] = @__p_0
+2022-12-05 16:56:31.754 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [CartItems] ([MealId], [Quantity], [UserId])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [CartItems]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-12-05 16:56:31.840 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 16:56:31.840 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web) in 841.2318ms
+2022-12-05 16:56:31.840 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 16:56:31.848 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3 - 200 - - 881.2037ms
+2022-12-05 16:56:34.776 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3
+2022-12-05 16:56:34.782 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 16:56:34.782 +02:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 16:56:34.784 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:56:34.803 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[CanteenId], [m].[Category], [m].[DailyMenuId], [m].[Description], [m].[Name], [m].[PictureURL], [m].[Portion], [m].[Price]
+FROM [Meals] AS [m]
+WHERE [m].[Id] = @__p_0
+2022-12-05 16:56:34.812 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [CartItems] ([MealId], [Quantity], [UserId])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [CartItems]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-12-05 16:56:34.822 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 16:56:34.822 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web) in 40.0481ms
+2022-12-05 16:56:34.822 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 16:56:34.823 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3 - 200 - - 47.2254ms
+2022-12-05 16:56:47.268 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/GetCartItems application/json 3
+2022-12-05 16:56:47.271 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.GetCartItems (CantinaUPT_API.Web)'
+2022-12-05 16:56:47.275 +02:00 [INF] Route matched with {action = "GetCartItems", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCartItems() on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 16:56:47.289 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:56:47.325 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[MealId], [c].[Quantity], [c].[UserId]
+FROM [CartItems] AS [c]
+WHERE [c].[UserId] = @__userId_0
+2022-12-05 16:56:47.377 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.CartItemDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-12-05 16:56:47.470 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.GetCartItems (CantinaUPT_API.Web) in 194.6815ms
+2022-12-05 16:56:47.470 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.GetCartItems (CantinaUPT_API.Web)'
+2022-12-05 16:56:47.474 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/GetCartItems application/json 3 - 200 55 application/json;+charset=utf-8 206.2052ms
+2022-12-05 16:57:33.156 +02:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-12-05 16:57:34.352 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:57:34.800 +02:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-12-05 16:57:34.871 +02:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-12-05 16:57:34.893 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:57:35.260 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2022-12-05 16:57:35.365 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-05 16:57:35.366 +02:00 [INF] Hosting environment: Development
+2022-12-05 16:57:35.366 +02:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2022-12-05 16:57:35.392 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-12-05 16:57:35.454 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-12-05 16:57:35.484 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 16:57:35.491 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2022-12-05 16:57:35.501 +02:00 [INF] Executing ViewResult, running view Index.
+2022-12-05 16:57:35.684 +02:00 [INF] Executed ViewResult - view Index executed in 183.3916ms.
+2022-12-05 16:57:35.691 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 199.4764ms
+2022-12-05 16:57:35.691 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 16:57:35.749 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 362.0710ms
+2022-12-05 16:57:35.818 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-12-05 16:57:35.818 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-12-05 16:57:35.828 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 9.9197ms
+2022-12-05 16:57:35.861 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 43.3274ms
+2022-12-05 16:57:47.767 +02:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:57678/api/DeleteCartItems application/json 3
+2022-12-05 16:57:47.771 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.DeleteCartItems (CantinaUPT_API.Web)'
+2022-12-05 16:57:47.778 +02:00 [INF] Route matched with {action = "DeleteCartItems", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCartItems() on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 16:57:47.961 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:57:48.258 +02:00 [INF] Executed DbCommand (97ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[MealId], [c].[Quantity], [c].[UserId]
+FROM [CartItems] AS [c]
+WHERE [c].[UserId] = @__userId_0
+2022-12-05 16:57:48.596 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [CartItems]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2022-12-05 16:57:48.609 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [CartItems]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2022-12-05 16:57:48.673 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 16:57:48.674 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.DeleteCartItems (CantinaUPT_API.Web) in 895.6586ms
+2022-12-05 16:57:48.674 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.DeleteCartItems (CantinaUPT_API.Web)'
+2022-12-05 16:57:48.683 +02:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:57678/api/DeleteCartItems application/json 3 - 200 - - 916.6740ms
+2022-12-05 16:58:06.326 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3
+2022-12-05 16:58:06.331 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 16:58:06.344 +02:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 16:58:06.426 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:58:06.456 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[CanteenId], [m].[Category], [m].[DailyMenuId], [m].[Description], [m].[Name], [m].[PictureURL], [m].[Portion], [m].[Price]
+FROM [Meals] AS [m]
+WHERE [m].[Id] = @__p_0
+2022-12-05 16:58:06.564 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [CartItems] ([MealId], [Quantity], [UserId])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [CartItems]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-12-05 16:58:06.600 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 16:58:06.601 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web) in 256.027ms
+2022-12-05 16:58:06.601 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 16:58:06.601 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3 - 200 - - 274.8541ms
+2022-12-05 16:58:09.387 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3
+2022-12-05 16:58:09.387 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 16:58:09.387 +02:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 16:58:09.389 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:58:09.395 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[CanteenId], [m].[Category], [m].[DailyMenuId], [m].[Description], [m].[Name], [m].[PictureURL], [m].[Portion], [m].[Price]
+FROM [Meals] AS [m]
+WHERE [m].[Id] = @__p_0
+2022-12-05 16:58:09.402 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [CartItems] ([MealId], [Quantity], [UserId])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [CartItems]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-12-05 16:58:09.411 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 16:58:09.411 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web) in 23.9757ms
+2022-12-05 16:58:09.412 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 16:58:09.412 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3 - 200 - - 25.0259ms
+2022-12-05 16:58:16.009 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3
+2022-12-05 16:58:16.009 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 16:58:16.009 +02:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 16:58:16.010 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:58:16.012 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[CanteenId], [m].[Category], [m].[DailyMenuId], [m].[Description], [m].[Name], [m].[PictureURL], [m].[Portion], [m].[Price]
+FROM [Meals] AS [m]
+WHERE [m].[Id] = @__p_0
+2022-12-05 16:58:16.016 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [CartItems] ([MealId], [Quantity], [UserId])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [CartItems]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-12-05 16:58:16.017 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 16:58:16.017 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web) in 7.4221ms
+2022-12-05 16:58:16.017 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 16:58:16.017 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3 - 200 - - 8.3179ms
+2022-12-05 16:59:17.253 +02:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-12-05 16:59:18.436 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:59:18.898 +02:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-12-05 16:59:18.961 +02:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-12-05 16:59:18.988 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:59:19.340 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2022-12-05 16:59:19.455 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-05 16:59:19.455 +02:00 [INF] Hosting environment: Development
+2022-12-05 16:59:19.455 +02:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2022-12-05 16:59:19.481 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-12-05 16:59:19.547 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-12-05 16:59:19.577 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 16:59:19.584 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2022-12-05 16:59:19.593 +02:00 [INF] Executing ViewResult, running view Index.
+2022-12-05 16:59:19.780 +02:00 [INF] Executed ViewResult - view Index executed in 188.5141ms.
+2022-12-05 16:59:19.787 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 202.6552ms
+2022-12-05 16:59:19.789 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 16:59:19.849 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 369.9556ms
+2022-12-05 16:59:19.899 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-12-05 16:59:19.901 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-12-05 16:59:19.910 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 11.1159ms
+2022-12-05 16:59:19.944 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 43.1785ms
+2022-12-05 16:59:28.319 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/GetCartItems application/json 3
+2022-12-05 16:59:28.323 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.GetCartItems (CantinaUPT_API.Web)'
+2022-12-05 16:59:28.331 +02:00 [INF] Route matched with {action = "GetCartItems", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCartItems() on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 16:59:28.491 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:59:28.789 +02:00 [INF] Executed DbCommand (67ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[MealId], [c].[Quantity], [c].[UserId], [m].[Id], [m].[CanteenId], [m].[Category], [m].[DailyMenuId], [m].[Description], [m].[Name], [m].[PictureURL], [m].[Portion], [m].[Price]
+FROM [CartItems] AS [c]
+INNER JOIN [Meals] AS [m] ON [c].[MealId] = [m].[Id]
+WHERE [c].[UserId] = @__userId_0
+2022-12-05 16:59:28.932 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.CartItemDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-12-05 16:59:29.063 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.GetCartItems (CantinaUPT_API.Web) in 731.7977ms
+2022-12-05 16:59:29.063 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.GetCartItems (CantinaUPT_API.Web)'
+2022-12-05 16:59:29.070 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/GetCartItems application/json 3 - 200 481 application/json;+charset=utf-8 750.5837ms
+2022-12-05 16:59:50.122 +02:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:57678/api/DeleteCartItems application/json 3
+2022-12-05 16:59:50.130 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.DeleteCartItems (CantinaUPT_API.Web)'
+2022-12-05 16:59:50.132 +02:00 [INF] Route matched with {action = "DeleteCartItems", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCartItems() on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 16:59:50.133 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 16:59:50.149 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[MealId], [c].[Quantity], [c].[UserId], [m].[Id], [m].[CanteenId], [m].[Category], [m].[DailyMenuId], [m].[Description], [m].[Name], [m].[PictureURL], [m].[Portion], [m].[Price]
+FROM [CartItems] AS [c]
+INNER JOIN [Meals] AS [m] ON [c].[MealId] = [m].[Id]
+WHERE [c].[UserId] = @__userId_0
+2022-12-05 16:59:50.285 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [CartItems]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2022-12-05 16:59:50.297 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [CartItems]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2022-12-05 16:59:50.298 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [CartItems]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2022-12-05 16:59:50.350 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 16:59:50.350 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.DeleteCartItems (CantinaUPT_API.Web) in 218.2396ms
+2022-12-05 16:59:50.350 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.DeleteCartItems (CantinaUPT_API.Web)'
+2022-12-05 16:59:50.351 +02:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:57678/api/DeleteCartItems application/json 3 - 200 - - 228.7265ms
+2022-12-05 17:14:16.138 +02:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-12-05 17:14:17.483 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 17:14:17.982 +02:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-12-05 17:14:18.055 +02:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-12-05 17:14:18.074 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 17:14:18.542 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2022-12-05 17:14:18.657 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-05 17:14:18.658 +02:00 [INF] Hosting environment: Development
+2022-12-05 17:14:18.658 +02:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2022-12-05 17:14:18.696 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-12-05 17:14:18.775 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-12-05 17:14:18.810 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 17:14:18.817 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2022-12-05 17:14:18.826 +02:00 [INF] Executing ViewResult, running view Index.
+2022-12-05 17:14:19.043 +02:00 [INF] Executed ViewResult - view Index executed in 212.51ms.
+2022-12-05 17:14:19.050 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 232.5545ms
+2022-12-05 17:14:19.051 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 17:14:19.138 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 445.4770ms
+2022-12-05 17:14:19.229 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-12-05 17:14:19.238 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 8.9825ms
+2022-12-05 17:14:19.251 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-12-05 17:14:19.309 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.6084ms
+2022-12-05 17:20:49.048 +02:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-12-05 17:20:50.453 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 17:20:50.961 +02:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-12-05 17:20:51.036 +02:00 [INF] Executed DbCommand (52ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-12-05 17:20:51.062 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 17:20:51.431 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2022-12-05 17:20:51.544 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-05 17:20:51.545 +02:00 [INF] Hosting environment: Development
+2022-12-05 17:20:51.545 +02:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2022-12-05 17:20:51.566 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-12-05 17:20:51.627 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-12-05 17:20:51.659 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 17:20:51.669 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2022-12-05 17:20:51.680 +02:00 [INF] Executing ViewResult, running view Index.
+2022-12-05 17:20:51.857 +02:00 [INF] Executed ViewResult - view Index executed in 177.3694ms.
+2022-12-05 17:20:51.865 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 195.6311ms
+2022-12-05 17:20:51.866 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 17:20:51.932 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 368.8536ms
+2022-12-05 17:20:51.988 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-12-05 17:20:51.988 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-12-05 17:20:51.999 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 10.2644ms
+2022-12-05 17:20:52.030 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 42.2129ms
+2022-12-05 17:21:01.691 +02:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-12-05 17:21:02.856 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 17:21:03.337 +02:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-12-05 17:21:03.393 +02:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-12-05 17:21:03.419 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 17:21:03.779 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2022-12-05 17:21:03.881 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-05 17:21:03.881 +02:00 [INF] Hosting environment: Development
+2022-12-05 17:21:03.881 +02:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2022-12-05 17:21:03.909 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2022-12-05 17:21:03.965 +02:00 [WRN] Failed to determine the https port for redirect.
+2022-12-05 17:21:03.994 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 17:21:04.000 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2022-12-05 17:21:04.009 +02:00 [INF] Executing ViewResult, running view Index.
+2022-12-05 17:21:04.195 +02:00 [INF] Executed ViewResult - view Index executed in 186.612ms.
+2022-12-05 17:21:04.202 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 201.082ms
+2022-12-05 17:21:04.203 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2022-12-05 17:21:04.272 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 366.1512ms
+2022-12-05 17:21:04.315 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2022-12-05 17:21:04.315 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2022-12-05 17:21:04.324 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 9.1831ms
+2022-12-05 17:21:04.357 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 42.3381ms
+2022-12-05 17:21:18.110 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3
+2022-12-05 17:21:18.114 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 17:21:18.127 +02:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 17:21:18.356 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 17:21:18.585 +02:00 [INF] Executed DbCommand (83ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[CanteenId], [m].[Category], [m].[DailyMenuId], [m].[Description], [m].[Name], [m].[PictureURL], [m].[Portion], [m].[Price]
+FROM [Meals] AS [m]
+WHERE [m].[Id] = @__p_0
+2022-12-05 17:21:18.792 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__entity_equality_cartItem_Meal_0_Id='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [CartItems] AS [c]
+        INNER JOIN [Meals] AS [m] ON [c].[MealId] = [m].[Id]
+        WHERE ([m].[Id] = @__entity_equality_cartItem_Meal_0_Id) AND ([c].[UserId] = 1)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2022-12-05 17:21:18.969 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [CartItems] ([MealId], [Quantity], [UserId])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [CartItems]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-12-05 17:21:19.040 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 17:21:19.040 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web) in 912.605ms
+2022-12-05 17:21:19.040 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 17:21:19.046 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3 - 200 - - 935.5569ms
+2022-12-05 17:21:25.154 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3
+2022-12-05 17:21:25.158 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 17:21:25.158 +02:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 17:21:25.160 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 17:21:25.164 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[CanteenId], [m].[Category], [m].[DailyMenuId], [m].[Description], [m].[Name], [m].[PictureURL], [m].[Portion], [m].[Price]
+FROM [Meals] AS [m]
+WHERE [m].[Id] = @__p_0
+2022-12-05 17:21:25.172 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__entity_equality_cartItem_Meal_0_Id='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [CartItems] AS [c]
+        INNER JOIN [Meals] AS [m] ON [c].[MealId] = [m].[Id]
+        WHERE ([m].[Id] = @__entity_equality_cartItem_Meal_0_Id) AND ([c].[UserId] = 1)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2022-12-05 17:21:25.172 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 17:21:25.173 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web) in 14.2513ms
+2022-12-05 17:21:25.173 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 17:21:25.174 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3 - 200 - - 19.8472ms
+2022-12-05 17:21:32.210 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3
+2022-12-05 17:21:32.210 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 17:21:32.210 +02:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 17:21:32.211 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 17:21:32.212 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[CanteenId], [m].[Category], [m].[DailyMenuId], [m].[Description], [m].[Name], [m].[PictureURL], [m].[Portion], [m].[Price]
+FROM [Meals] AS [m]
+WHERE [m].[Id] = @__p_0
+2022-12-05 17:21:32.216 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__entity_equality_cartItem_Meal_0_Id='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [CartItems] AS [c]
+        INNER JOIN [Meals] AS [m] ON [c].[MealId] = [m].[Id]
+        WHERE ([m].[Id] = @__entity_equality_cartItem_Meal_0_Id) AND ([c].[UserId] = 1)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2022-12-05 17:21:32.216 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 17:21:32.217 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web) in 6.373ms
+2022-12-05 17:21:32.217 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 17:21:32.218 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3 - 200 - - 8.2964ms
+2022-12-05 17:21:35.637 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3
+2022-12-05 17:21:35.637 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 17:21:35.637 +02:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 17:21:35.639 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 17:21:35.641 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[CanteenId], [m].[Category], [m].[DailyMenuId], [m].[Description], [m].[Name], [m].[PictureURL], [m].[Portion], [m].[Price]
+FROM [Meals] AS [m]
+WHERE [m].[Id] = @__p_0
+2022-12-05 17:21:35.645 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__entity_equality_cartItem_Meal_0_Id='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [CartItems] AS [c]
+        INNER JOIN [Meals] AS [m] ON [c].[MealId] = [m].[Id]
+        WHERE ([m].[Id] = @__entity_equality_cartItem_Meal_0_Id) AND ([c].[UserId] = 1)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2022-12-05 17:21:35.651 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [CartItems] ([MealId], [Quantity], [UserId])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [CartItems]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2022-12-05 17:21:35.661 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 17:21:35.661 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web) in 23.6431ms
+2022-12-05 17:21:35.661 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 17:21:35.662 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3 - 200 - - 24.8929ms
+2022-12-05 17:21:42.233 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3
+2022-12-05 17:21:42.234 +02:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 17:21:42.234 +02:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(Int32) on controller CantinaUPT_API.Web.Controllers.CartController (CantinaUPT_API.Web).
+2022-12-05 17:21:42.235 +02:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2022-12-05 17:21:42.237 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[CanteenId], [m].[Category], [m].[DailyMenuId], [m].[Description], [m].[Name], [m].[PictureURL], [m].[Portion], [m].[Price]
+FROM [Meals] AS [m]
+WHERE [m].[Id] = @__p_0
+2022-12-05 17:21:42.241 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__entity_equality_cartItem_Meal_0_Id='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [CartItems] AS [c]
+        INNER JOIN [Meals] AS [m] ON [c].[MealId] = [m].[Id]
+        WHERE ([m].[Id] = @__entity_equality_cartItem_Meal_0_Id) AND ([c].[UserId] = 1)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2022-12-05 17:21:42.241 +02:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2022-12-05 17:21:42.241 +02:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web) in 7.2107ms
+2022-12-05 17:21:42.241 +02:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CartController.AddToCart (CantinaUPT_API.Web)'
+2022-12-05 17:21:42.242 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/AddToCart application/json 3 - 200 - - 8.1878ms
