@@ -4,6 +4,6 @@ namespace CantinaUPT_API.Web.ApiModels;
 
 public class FoodsCategorized
 {
-  public string category;
-  public List<Meal> meals;
+  public string title;
+  public List<Meal> data;
 }
