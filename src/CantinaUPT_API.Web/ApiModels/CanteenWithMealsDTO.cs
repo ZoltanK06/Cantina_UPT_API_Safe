@@ -14,7 +14,7 @@ public class CanteenWithMealsDTO
     foreach(Category category in categories)
     {
       var mealsOfCategory = meals.Where(meal => meal.Category == category);
-      FoodsCategorized newFoodsCategorized = new FoodsCategorized { category = category.ToString(), meals = mealsOfCategory.ToList() };
+      FoodsCategorized newFoodsCategorized = new FoodsCategorized { title = category.ToString(), data = mealsOfCategory.ToList() };
       foodsCategorized.Add(newFoodsCategorized);
     }
   }
