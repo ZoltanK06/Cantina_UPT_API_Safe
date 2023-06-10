@@ -3,16 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CantinaUPT_API.SharedKernel;
+using CantinaUPT_API.SharedKernel.Interfaces;
 
 namespace CantinaUPT_API.Core.ProjectAggregate;
-public enum Category
+public class Category: EntityBase, IAggregateRoot
 {
-  Soup,
-  Garnish,
-  Meat,
-  Pickles,
-  Dessert,
-  Sauces,
-  Bread,
-  WholeMeal
+  public string CategoryName { get; set; }
 }

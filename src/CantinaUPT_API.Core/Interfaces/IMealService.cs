@@ -12,6 +12,8 @@ public interface IMealService
   Task<List<Meal>> GetAllMeals();
   Task<List<Meal>> GetMealsByIds(List<int> mealIds);
   Task DeleteMeal(int id);
-  Task AddMeal(Meal meal);
+  Task<Meal> AddMeal(Meal meal);
   Task UpdateMeal(int id, Meal meal);
+  Task ChangeDisponibility(int mealId);
+  Task<List<Meal>> GetOrderedMealsByIds(List<int> mealIds);
 }

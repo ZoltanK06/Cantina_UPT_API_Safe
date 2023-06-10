@@ -1,0 +1,649 @@
+2023-05-24 19:28:10.175 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-24 19:28:11.638 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:28:12.216 +03:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-24 19:28:12.292 +03:00 [INF] Executed DbCommand (52ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-05-24 19:28:12.312 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:28:12.734 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-24 19:28:12.883 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-24 19:28:12.883 +03:00 [INF] Hosting environment: Development
+2023-05-24 19:28:12.883 +03:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2023-05-24 19:28:12.915 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-05-24 19:28:12.980 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-05-24 19:28:13.114 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-05-24 19:28:13.121 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2023-05-24 19:28:13.131 +03:00 [INF] Executing ViewResult, running view Index.
+2023-05-24 19:28:13.374 +03:00 [INF] Executed ViewResult - view Index executed in 243.2402ms.
+2023-05-24 19:28:13.380 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 258.4111ms
+2023-05-24 19:28:13.381 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-05-24 19:28:13.463 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/CantinaUPT_API.Web.styles.css?v=WEqNqzZ3UpuAc7H7SkjxwOizCgkYhlY1C00A3X0rFVs - -
+2023-05-24 19:28:13.470 +03:00 [INF] The file /CantinaUPT_API.Web.styles.css was not modified
+2023-05-24 19:28:13.475 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/CantinaUPT_API.Web.styles.css?v=WEqNqzZ3UpuAc7H7SkjxwOizCgkYhlY1C00A3X0rFVs - - - 304 - text/css 11.5418ms
+2023-05-24 19:28:13.476 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 564.5288ms
+2023-05-24 19:28:13.534 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-05-24 19:28:13.537 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-05-24 19:28:13.542 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 6.7369ms
+2023-05-24 19:28:13.605 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 68.4945ms
+2023-05-24 19:28:13.667 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/favicon.ico - -
+2023-05-24 19:28:13.683 +03:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\wwwroot\favicon.ico'
+2023-05-24 19:28:13.683 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/favicon.ico - - - 200 5430 image/x-icon 15.8526ms
+2023-05-24 19:30:02.631 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/canteen/GetEveryCanteensDetails - -
+2023-05-24 19:30:02.648 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:30:02.649 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web)'
+2023-05-24 19:30:02.653 +03:00 [INF] Route matched with {action = "GetEveryCanteensDetails", controller = "Canteen", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEveryCanteensDetails() on controller CantinaUPT_API.Web.Controllers.CanteenController (CantinaUPT_API.Web).
+2023-05-24 19:30:02.822 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:30:02.923 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Location], [c].[Name], [c].[PictureURL]
+FROM [Canteens] AS [c]
+2023-05-24 19:30:03.032 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.CanteensDetailsDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-24 19:30:03.155 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web) in 501.7788ms
+2023-05-24 19:30:03.155 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web)'
+2023-05-24 19:30:03.162 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/canteen/GetEveryCanteensDetails - - - 200 271 application/json;+charset=utf-8 530.9557ms
+2023-05-24 19:32:43.061 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-05-24 19:32:43.063 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:32:43.090 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 29.4688ms
+2023-05-24 19:32:43.095 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 62
+2023-05-24 19:32:43.096 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:32:43.096 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-05-24 19:32:43.114 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-05-24 19:32:43.191 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:32:43.418 +03:00 [INF] Executed DbCommand (50ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[RoleId], [u].[Username], [r].[Id], [r].[RoleName], [c].[Id], [c].[Location], [c].[Name], [c].[PictureURL]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+LEFT JOIN [Canteens] AS [c] ON [u].[CanteenId] = [c].[Id]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-05-24 19:32:43.577 +03:00 [INF] Executing OkObjectResult, writing value of type 'CantinaUPT_API.Core.ProjectAggregate.LoginResponse'.
+2023-05-24 19:32:43.580 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 465.7374ms
+2023-05-24 19:32:43.580 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-05-24 19:32:43.580 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 62 - 200 454 application/json;+charset=utf-8 485.1891ms
+2023-05-24 19:32:43.598 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/canteen/GetEveryCanteensDetails - -
+2023-05-24 19:32:43.603 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:32:43.604 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/canteen/GetEveryCanteensDetails - - - 204 - - 5.4350ms
+2023-05-24 19:32:43.605 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/canteen/GetEveryCanteensDetails - -
+2023-05-24 19:32:43.605 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:32:43.676 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web)'
+2023-05-24 19:32:43.677 +03:00 [INF] Route matched with {action = "GetEveryCanteensDetails", controller = "Canteen", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEveryCanteensDetails() on controller CantinaUPT_API.Web.Controllers.CanteenController (CantinaUPT_API.Web).
+2023-05-24 19:32:43.677 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:32:43.679 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Location], [c].[Name], [c].[PictureURL]
+FROM [Canteens] AS [c]
+2023-05-24 19:32:43.680 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.CanteensDetailsDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-24 19:32:43.681 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web) in 4.2858ms
+2023-05-24 19:32:43.681 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web)'
+2023-05-24 19:32:43.681 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/canteen/GetEveryCanteensDetails - - - 200 271 application/json;+charset=utf-8 76.0868ms
+2023-05-24 19:32:47.870 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetCurrentOrder?userId=8 - -
+2023-05-24 19:32:47.870 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:32:47.871 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetCurrentOrder?userId=8 - - - 204 - - 0.7263ms
+2023-05-24 19:32:47.879 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetCurrentOrder?userId=8 - -
+2023-05-24 19:32:47.881 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:32:47.881 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetCurrentOrder (CantinaUPT_API.Web)'
+2023-05-24 19:32:47.884 +03:00 [INF] Route matched with {action = "GetCurrentOrder", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentOrder(Int32, Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 19:32:47.904 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:32:48.022 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__canteenId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId], [o0].[Id], [o0].[OrderStatusName], [t].[Id], [t].[MealId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CanteenId], [t].[CategoryId], [t].[DailyMenuId], [t].[Description], [t].[Disponibility], [t].[Name], [t].[PictureURL], [t].[PortionId], [t].[Price]
+FROM [Orders] AS [o]
+INNER JOIN [OrderStatuses] AS [o0] ON [o].[StatusId] = [o0].[Id]
+LEFT JOIN (
+    SELECT [o1].[Id], [o1].[MealId], [o1].[OrderId], [o1].[Quantity], [m].[Id] AS [Id0], [m].[CanteenId], [m].[CategoryId], [m].[DailyMenuId], [m].[Description], [m].[Disponibility], [m].[Name], [m].[PictureURL], [m].[PortionId], [m].[Price]
+    FROM [OrderItems] AS [o1]
+    INNER JOIN [Meals] AS [m] ON [o1].[MealId] = [m].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+WHERE (((DATEPART(day, [o].[OrderDate]) = DATEPART(day, GETDATE())) AND (DATEPART(month, [o].[OrderDate]) = DATEPART(month, GETDATE()))) AND (DATEPART(year, [o].[OrderDate]) = DATEPART(year, GETDATE()))) AND ([o].[CanteenId] = @__canteenId_0)
+ORDER BY [o].[Id], [o0].[Id], [t].[Id]
+2023-05-24 19:32:48.028 +03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-05-24 19:32:48.028 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.GetCurrentOrder (CantinaUPT_API.Web) in 143.9344ms
+2023-05-24 19:32:48.028 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetCurrentOrder (CantinaUPT_API.Web)'
+2023-05-24 19:32:48.028 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/order/GetCurrentOrder?userId=8 - - - 200 - - 149.0295ms
+2023-05-24 19:32:59.760 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetCurrentOrder?userId=8 - -
+2023-05-24 19:32:59.761 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:32:59.761 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetCurrentOrder?userId=8 - - - 204 - - 0.5254ms
+2023-05-24 19:32:59.762 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetCurrentOrder?userId=8 - -
+2023-05-24 19:32:59.763 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:32:59.763 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetCurrentOrder (CantinaUPT_API.Web)'
+2023-05-24 19:32:59.763 +03:00 [INF] Route matched with {action = "GetCurrentOrder", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentOrder(Int32, Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 19:32:59.765 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:32:59.770 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__canteenId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId], [o0].[Id], [o0].[OrderStatusName], [t].[Id], [t].[MealId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CanteenId], [t].[CategoryId], [t].[DailyMenuId], [t].[Description], [t].[Disponibility], [t].[Name], [t].[PictureURL], [t].[PortionId], [t].[Price]
+FROM [Orders] AS [o]
+INNER JOIN [OrderStatuses] AS [o0] ON [o].[StatusId] = [o0].[Id]
+LEFT JOIN (
+    SELECT [o1].[Id], [o1].[MealId], [o1].[OrderId], [o1].[Quantity], [m].[Id] AS [Id0], [m].[CanteenId], [m].[CategoryId], [m].[DailyMenuId], [m].[Description], [m].[Disponibility], [m].[Name], [m].[PictureURL], [m].[PortionId], [m].[Price]
+    FROM [OrderItems] AS [o1]
+    INNER JOIN [Meals] AS [m] ON [o1].[MealId] = [m].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+WHERE (((DATEPART(day, [o].[OrderDate]) = DATEPART(day, GETDATE())) AND (DATEPART(month, [o].[OrderDate]) = DATEPART(month, GETDATE()))) AND (DATEPART(year, [o].[OrderDate]) = DATEPART(year, GETDATE()))) AND ([o].[CanteenId] = @__canteenId_0)
+ORDER BY [o].[Id], [o0].[Id], [t].[Id]
+2023-05-24 19:32:59.771 +03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-05-24 19:32:59.771 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.GetCurrentOrder (CantinaUPT_API.Web) in 7.9105ms
+2023-05-24 19:32:59.771 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetCurrentOrder (CantinaUPT_API.Web)'
+2023-05-24 19:32:59.772 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/order/GetCurrentOrder?userId=8 - - - 200 - - 9.4913ms
+2023-05-24 19:34:00.510 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetCurrentOrder?userId=8 - -
+2023-05-24 19:34:00.511 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:34:00.511 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetCurrentOrder?userId=8 - - - 204 - - 0.4794ms
+2023-05-24 19:34:00.516 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetCurrentOrder?userId=8 - -
+2023-05-24 19:34:00.516 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:34:00.516 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetCurrentOrder (CantinaUPT_API.Web)'
+2023-05-24 19:34:00.517 +03:00 [INF] Route matched with {action = "GetCurrentOrder", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentOrder(Int32, Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 19:34:00.517 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:34:00.525 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__canteenId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId], [o0].[Id], [o0].[OrderStatusName], [t].[Id], [t].[MealId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CanteenId], [t].[CategoryId], [t].[DailyMenuId], [t].[Description], [t].[Disponibility], [t].[Name], [t].[PictureURL], [t].[PortionId], [t].[Price]
+FROM [Orders] AS [o]
+INNER JOIN [OrderStatuses] AS [o0] ON [o].[StatusId] = [o0].[Id]
+LEFT JOIN (
+    SELECT [o1].[Id], [o1].[MealId], [o1].[OrderId], [o1].[Quantity], [m].[Id] AS [Id0], [m].[CanteenId], [m].[CategoryId], [m].[DailyMenuId], [m].[Description], [m].[Disponibility], [m].[Name], [m].[PictureURL], [m].[PortionId], [m].[Price]
+    FROM [OrderItems] AS [o1]
+    INNER JOIN [Meals] AS [m] ON [o1].[MealId] = [m].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+WHERE (((DATEPART(day, [o].[OrderDate]) = DATEPART(day, GETDATE())) AND (DATEPART(month, [o].[OrderDate]) = DATEPART(month, GETDATE()))) AND (DATEPART(year, [o].[OrderDate]) = DATEPART(year, GETDATE()))) AND ([o].[CanteenId] = @__canteenId_0)
+ORDER BY [o].[Id], [o0].[Id], [t].[Id]
+2023-05-24 19:34:00.533 +03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-05-24 19:34:00.533 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.GetCurrentOrder (CantinaUPT_API.Web) in 16.6474ms
+2023-05-24 19:34:00.534 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetCurrentOrder (CantinaUPT_API.Web)'
+2023-05-24 19:34:00.534 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/order/GetCurrentOrder?userId=8 - - - 200 - - 18.1397ms
+2023-05-24 19:34:34.299 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetCurrentOrder?userId=8 - -
+2023-05-24 19:34:34.299 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:34:34.300 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetCurrentOrder?userId=8 - - - 204 - - 0.7434ms
+2023-05-24 19:34:34.301 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetCurrentOrder?userId=8 - -
+2023-05-24 19:34:34.301 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:34:34.302 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetCurrentOrder (CantinaUPT_API.Web)'
+2023-05-24 19:34:34.302 +03:00 [INF] Route matched with {action = "GetCurrentOrder", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentOrder(Int32, Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 19:41:30.204 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-24 19:41:31.654 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:41:32.119 +03:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-24 19:41:32.166 +03:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-05-24 19:41:32.196 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:41:32.549 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-24 19:41:32.648 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-24 19:41:32.648 +03:00 [INF] Hosting environment: Development
+2023-05-24 19:41:32.648 +03:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2023-05-24 19:41:32.666 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-05-24 19:41:32.724 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-05-24 19:41:32.832 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-05-24 19:41:32.841 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2023-05-24 19:41:32.853 +03:00 [INF] Executing ViewResult, running view Index.
+2023-05-24 19:41:33.025 +03:00 [INF] Executed ViewResult - view Index executed in 175.05ms.
+2023-05-24 19:41:33.031 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 189.3944ms
+2023-05-24 19:41:33.031 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-05-24 19:41:33.119 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 454.9662ms
+2023-05-24 19:41:33.179 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-05-24 19:41:33.179 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-05-24 19:41:33.192 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 12.7422ms
+2023-05-24 19:41:33.240 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 61.0090ms
+2023-05-24 19:41:34.031 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/canteen/GetEveryCanteensDetails - -
+2023-05-24 19:41:34.038 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:41:34.041 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/canteen/GetEveryCanteensDetails - - - 204 - - 9.7979ms
+2023-05-24 19:41:34.042 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/canteen/GetEveryCanteensDetails - -
+2023-05-24 19:41:34.043 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:41:34.234 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web)'
+2023-05-24 19:41:34.237 +03:00 [INF] Route matched with {action = "GetEveryCanteensDetails", controller = "Canteen", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEveryCanteensDetails() on controller CantinaUPT_API.Web.Controllers.CanteenController (CantinaUPT_API.Web).
+2023-05-24 19:41:34.405 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:41:34.493 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Location], [c].[Name], [c].[PictureURL]
+FROM [Canteens] AS [c]
+2023-05-24 19:41:34.606 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.CanteensDetailsDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-24 19:41:34.709 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web) in 471.2626ms
+2023-05-24 19:41:34.709 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web)'
+2023-05-24 19:41:34.717 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/canteen/GetEveryCanteensDetails - - - 200 271 application/json;+charset=utf-8 674.6381ms
+2023-05-24 19:41:42.017 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetCurrentOrder?userId=8 - -
+2023-05-24 19:41:42.020 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:41:42.021 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetCurrentOrder?userId=8 - - - 204 - - 3.4078ms
+2023-05-24 19:41:42.023 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetCurrentOrder?userId=8 - -
+2023-05-24 19:41:42.025 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:41:42.025 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetCurrentOrder (CantinaUPT_API.Web)'
+2023-05-24 19:41:42.040 +03:00 [INF] Route matched with {action = "GetCurrentOrder", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCurrentOrder(Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 19:41:42.066 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:41:42.319 +03:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId], [o0].[Id], [o0].[OrderStatusName], [t].[Id], [t].[MealId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CanteenId], [t].[CategoryId], [t].[DailyMenuId], [t].[Description], [t].[Disponibility], [t].[Name], [t].[PictureURL], [t].[PortionId], [t].[Price]
+FROM [Orders] AS [o]
+INNER JOIN [OrderStatuses] AS [o0] ON [o].[StatusId] = [o0].[Id]
+LEFT JOIN (
+    SELECT [o1].[Id], [o1].[MealId], [o1].[OrderId], [o1].[Quantity], [m].[Id] AS [Id0], [m].[CanteenId], [m].[CategoryId], [m].[DailyMenuId], [m].[Description], [m].[Disponibility], [m].[Name], [m].[PictureURL], [m].[PortionId], [m].[Price]
+    FROM [OrderItems] AS [o1]
+    INNER JOIN [Meals] AS [m] ON [o1].[MealId] = [m].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+WHERE ((DATEPART(day, [o].[OrderDate]) = DATEPART(day, GETDATE())) AND (DATEPART(month, [o].[OrderDate]) = DATEPART(month, GETDATE()))) AND (DATEPART(year, [o].[OrderDate]) = DATEPART(year, GETDATE()))
+ORDER BY [o].[Id], [o0].[Id], [t].[Id]
+2023-05-24 19:41:42.658 +03:00 [INF] Executing OkObjectResult, writing value of type 'CantinaUPT_API.Web.ApiModels.OrderDTO'.
+2023-05-24 19:41:42.706 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.GetCurrentOrder (CantinaUPT_API.Web) in 666.1435ms
+2023-05-24 19:41:42.707 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetCurrentOrder (CantinaUPT_API.Web)'
+2023-05-24 19:41:42.707 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/order/GetCurrentOrder?userId=8 - - - 200 640833 application/json;+charset=utf-8 684.1634ms
+2023-05-24 19:51:11.381 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-05-24 19:51:11.381 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:51:11.384 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 2.7782ms
+2023-05-24 19:51:11.393 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 66
+2023-05-24 19:51:11.394 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:51:11.395 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-05-24 19:51:11.397 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-05-24 19:51:11.477 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:51:11.568 +03:00 [INF] Executed DbCommand (42ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[RoleId], [u].[Username], [r].[Id], [r].[RoleName], [c].[Id], [c].[Location], [c].[Name], [c].[PictureURL]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+LEFT JOIN [Canteens] AS [c] ON [u].[CanteenId] = [c].[Id]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-05-24 19:51:11.603 +03:00 [INF] Executing OkObjectResult, writing value of type 'CantinaUPT_API.Core.ProjectAggregate.LoginResponse'.
+2023-05-24 19:51:11.605 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 207.8188ms
+2023-05-24 19:51:11.605 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-05-24 19:51:11.606 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 66 - 200 460 application/json;+charset=utf-8 212.7481ms
+2023-05-24 19:53:16.639 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 19:53:16.639 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:53:16.640 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 204 - - 1.4600ms
+2023-05-24 19:53:16.642 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - -
+2023-05-24 19:53:16.643 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:53:16.647 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - - - 204 - - 5.4205ms
+2023-05-24 19:53:16.653 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0
+2023-05-24 19:53:16.654 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:53:16.654 +03:00 [INF] Executing endpoint '/hubs/orders/negotiate'
+2023-05-24 19:53:16.656 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 19:53:16.656 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:53:16.664 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 19:53:16.667 +03:00 [INF] Route matched with {action = "GetOrdersForCanteen", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrdersForCanteen(Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 19:53:16.669 +03:00 [INF] Executed endpoint '/hubs/orders/negotiate'
+2023-05-24 19:53:16.669 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0 - 200 316 application/json 16.3295ms
+2023-05-24 19:53:16.671 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:53:16.674 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/hubs/orders?id=kNxGl1cbrJbb23bfyYrZGA - -
+2023-05-24 19:53:16.674 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:53:16.674 +03:00 [INF] Executing endpoint '/hubs/orders'
+2023-05-24 19:53:16.708 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[@__canteenId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId], [o0].[Id], [o0].[OrderStatusName], [t].[Id], [t].[MealId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CanteenId], [t].[CategoryId], [t].[DailyMenuId], [t].[Description], [t].[Disponibility], [t].[Name], [t].[PictureURL], [t].[PortionId], [t].[Price]
+FROM [Orders] AS [o]
+INNER JOIN [OrderStatuses] AS [o0] ON [o].[StatusId] = [o0].[Id]
+LEFT JOIN (
+    SELECT [o1].[Id], [o1].[MealId], [o1].[OrderId], [o1].[Quantity], [m].[Id] AS [Id0], [m].[CanteenId], [m].[CategoryId], [m].[DailyMenuId], [m].[Description], [m].[Disponibility], [m].[Name], [m].[PictureURL], [m].[PortionId], [m].[Price]
+    FROM [OrderItems] AS [o1]
+    INNER JOIN [Meals] AS [m] ON [o1].[MealId] = [m].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+WHERE (((DATEPART(day, [o].[OrderDate]) = DATEPART(day, GETDATE())) AND (DATEPART(month, [o].[OrderDate]) = DATEPART(month, GETDATE()))) AND (DATEPART(year, [o].[OrderDate]) = DATEPART(year, GETDATE()))) AND ([o].[CanteenId] = @__canteenId_0)
+ORDER BY [o].[Id], [o0].[Id], [t].[Id]
+2023-05-24 19:53:17.009 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.OrderDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-24 19:53:17.042 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web) in 374.7612ms
+2023-05-24 19:53:17.042 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 19:53:17.045 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 200 640834 application/json;+charset=utf-8 388.5441ms
+2023-05-24 19:54:27.078 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 19:54:27.078 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:54:27.079 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 204 - - 0.3485ms
+2023-05-24 19:54:27.081 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 19:54:27.081 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:54:27.081 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - -
+2023-05-24 19:54:27.081 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:54:27.082 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - - - 204 - - 0.3367ms
+2023-05-24 19:54:27.082 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 19:54:27.082 +03:00 [INF] Route matched with {action = "GetOrdersForCanteen", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrdersForCanteen(Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 19:54:27.083 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:54:27.083 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0
+2023-05-24 19:54:27.084 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:54:27.084 +03:00 [INF] Executing endpoint '/hubs/orders/negotiate'
+2023-05-24 19:54:27.084 +03:00 [INF] Executed endpoint '/hubs/orders/negotiate'
+2023-05-24 19:54:27.085 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0 - 200 316 application/json 1.1953ms
+2023-05-24 19:54:27.094 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/hubs/orders?id=_HKCTP0xUq6JypcxSZkGSw - -
+2023-05-24 19:54:27.094 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:54:27.095 +03:00 [INF] Executing endpoint '/hubs/orders'
+2023-05-24 19:54:27.099 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__canteenId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId], [o0].[Id], [o0].[OrderStatusName], [t].[Id], [t].[MealId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CanteenId], [t].[CategoryId], [t].[DailyMenuId], [t].[Description], [t].[Disponibility], [t].[Name], [t].[PictureURL], [t].[PortionId], [t].[Price]
+FROM [Orders] AS [o]
+INNER JOIN [OrderStatuses] AS [o0] ON [o].[StatusId] = [o0].[Id]
+LEFT JOIN (
+    SELECT [o1].[Id], [o1].[MealId], [o1].[OrderId], [o1].[Quantity], [m].[Id] AS [Id0], [m].[CanteenId], [m].[CategoryId], [m].[DailyMenuId], [m].[Description], [m].[Disponibility], [m].[Name], [m].[PictureURL], [m].[PortionId], [m].[Price]
+    FROM [OrderItems] AS [o1]
+    INNER JOIN [Meals] AS [m] ON [o1].[MealId] = [m].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+WHERE (((DATEPART(day, [o].[OrderDate]) = DATEPART(day, GETDATE())) AND (DATEPART(month, [o].[OrderDate]) = DATEPART(month, GETDATE()))) AND (DATEPART(year, [o].[OrderDate]) = DATEPART(year, GETDATE()))) AND ([o].[CanteenId] = @__canteenId_0)
+ORDER BY [o].[Id], [o0].[Id], [t].[Id]
+2023-05-24 19:54:27.317 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.OrderDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-24 19:54:27.349 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web) in 267.424ms
+2023-05-24 19:54:27.350 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 19:54:27.350 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 200 640834 application/json;+charset=utf-8 269.0934ms
+2023-05-24 19:56:51.055 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 19:56:51.055 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:56:51.055 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 204 - - 0.4652ms
+2023-05-24 19:56:51.057 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 19:56:51.057 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:56:51.058 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 19:56:51.058 +03:00 [INF] Route matched with {action = "GetOrdersForCanteen", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrdersForCanteen(Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 19:56:51.060 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:56:51.068 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - -
+2023-05-24 19:56:51.069 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:56:51.069 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - - - 204 - - 0.5221ms
+2023-05-24 19:56:51.071 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0
+2023-05-24 19:56:51.071 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:56:51.071 +03:00 [INF] Executing endpoint '/hubs/orders/negotiate'
+2023-05-24 19:56:51.072 +03:00 [INF] Executed endpoint '/hubs/orders/negotiate'
+2023-05-24 19:56:51.072 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0 - 200 316 application/json 1.0563ms
+2023-05-24 19:56:51.076 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[@__canteenId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId], [o0].[Id], [o0].[OrderStatusName], [t].[Id], [t].[MealId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CanteenId], [t].[CategoryId], [t].[DailyMenuId], [t].[Description], [t].[Disponibility], [t].[Name], [t].[PictureURL], [t].[PortionId], [t].[Price]
+FROM [Orders] AS [o]
+INNER JOIN [OrderStatuses] AS [o0] ON [o].[StatusId] = [o0].[Id]
+LEFT JOIN (
+    SELECT [o1].[Id], [o1].[MealId], [o1].[OrderId], [o1].[Quantity], [m].[Id] AS [Id0], [m].[CanteenId], [m].[CategoryId], [m].[DailyMenuId], [m].[Description], [m].[Disponibility], [m].[Name], [m].[PictureURL], [m].[PortionId], [m].[Price]
+    FROM [OrderItems] AS [o1]
+    INNER JOIN [Meals] AS [m] ON [o1].[MealId] = [m].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+WHERE (((DATEPART(day, [o].[OrderDate]) = DATEPART(day, GETDATE())) AND (DATEPART(month, [o].[OrderDate]) = DATEPART(month, GETDATE()))) AND (DATEPART(year, [o].[OrderDate]) = DATEPART(year, GETDATE()))) AND ([o].[CanteenId] = @__canteenId_0)
+ORDER BY [o].[Id], [o0].[Id], [t].[Id]
+2023-05-24 19:56:51.085 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/hubs/orders?id=bGtRARslrvvH90g1Bri-xw - -
+2023-05-24 19:56:51.085 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:56:51.086 +03:00 [INF] Executing endpoint '/hubs/orders'
+2023-05-24 19:56:51.384 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.OrderDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-24 19:56:51.414 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web) in 355.7803ms
+2023-05-24 19:56:51.414 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 19:56:51.414 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 200 640834 application/json;+charset=utf-8 357.0294ms
+2023-05-24 19:56:53.044 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 19:56:53.044 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:56:53.045 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 19:56:53.045 +03:00 [INF] Route matched with {action = "GetOrdersForCanteen", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrdersForCanteen(Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 19:56:53.046 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:56:53.048 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__canteenId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId], [o0].[Id], [o0].[OrderStatusName], [t].[Id], [t].[MealId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CanteenId], [t].[CategoryId], [t].[DailyMenuId], [t].[Description], [t].[Disponibility], [t].[Name], [t].[PictureURL], [t].[PortionId], [t].[Price]
+FROM [Orders] AS [o]
+INNER JOIN [OrderStatuses] AS [o0] ON [o].[StatusId] = [o0].[Id]
+LEFT JOIN (
+    SELECT [o1].[Id], [o1].[MealId], [o1].[OrderId], [o1].[Quantity], [m].[Id] AS [Id0], [m].[CanteenId], [m].[CategoryId], [m].[DailyMenuId], [m].[Description], [m].[Disponibility], [m].[Name], [m].[PictureURL], [m].[PortionId], [m].[Price]
+    FROM [OrderItems] AS [o1]
+    INNER JOIN [Meals] AS [m] ON [o1].[MealId] = [m].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+WHERE (((DATEPART(day, [o].[OrderDate]) = DATEPART(day, GETDATE())) AND (DATEPART(month, [o].[OrderDate]) = DATEPART(month, GETDATE()))) AND (DATEPART(year, [o].[OrderDate]) = DATEPART(year, GETDATE()))) AND ([o].[CanteenId] = @__canteenId_0)
+ORDER BY [o].[Id], [o0].[Id], [t].[Id]
+2023-05-24 19:56:53.049 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - -
+2023-05-24 19:56:53.050 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:56:53.058 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - - - 204 - - 9.1013ms
+2023-05-24 19:56:53.059 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0
+2023-05-24 19:56:53.059 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:56:53.059 +03:00 [INF] Executing endpoint '/hubs/orders/negotiate'
+2023-05-24 19:56:53.059 +03:00 [INF] Executed endpoint '/hubs/orders/negotiate'
+2023-05-24 19:56:53.059 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0 - 200 316 application/json 0.9560ms
+2023-05-24 19:56:53.065 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/hubs/orders?id=WlWvyFP7Xxgv7gObCzVqYQ - -
+2023-05-24 19:56:53.065 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:56:53.065 +03:00 [INF] Executing endpoint '/hubs/orders'
+2023-05-24 19:56:53.352 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.OrderDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-24 19:56:53.380 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web) in 334.7456ms
+2023-05-24 19:56:53.380 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 19:56:53.380 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 200 640834 application/json;+charset=utf-8 336.0262ms
+2023-05-24 19:58:59.047 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 19:58:59.047 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:58:59.048 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 204 - - 1.2274ms
+2023-05-24 19:58:59.050 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 19:58:59.050 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:58:59.050 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 19:58:59.050 +03:00 [INF] Route matched with {action = "GetOrdersForCanteen", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrdersForCanteen(Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 19:58:59.052 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:58:59.056 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - -
+2023-05-24 19:58:59.056 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:58:59.056 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - - - 204 - - 0.3894ms
+2023-05-24 19:58:59.058 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0
+2023-05-24 19:58:59.058 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:58:59.059 +03:00 [INF] Executing endpoint '/hubs/orders/negotiate'
+2023-05-24 19:58:59.079 +03:00 [INF] Executed endpoint '/hubs/orders/negotiate'
+2023-05-24 19:58:59.079 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0 - 200 316 application/json 20.7408ms
+2023-05-24 19:58:59.084 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/hubs/orders?id=eQBXTeZfuUj6Jyv0btZ68w - -
+2023-05-24 19:58:59.084 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:58:59.084 +03:00 [INF] Executing endpoint '/hubs/orders'
+2023-05-24 19:58:59.091 +03:00 [INF] Executed DbCommand (39ms) [Parameters=[@__canteenId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId], [o0].[Id], [o0].[OrderStatusName], [t].[Id], [t].[MealId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CanteenId], [t].[CategoryId], [t].[DailyMenuId], [t].[Description], [t].[Disponibility], [t].[Name], [t].[PictureURL], [t].[PortionId], [t].[Price]
+FROM [Orders] AS [o]
+INNER JOIN [OrderStatuses] AS [o0] ON [o].[StatusId] = [o0].[Id]
+LEFT JOIN (
+    SELECT [o1].[Id], [o1].[MealId], [o1].[OrderId], [o1].[Quantity], [m].[Id] AS [Id0], [m].[CanteenId], [m].[CategoryId], [m].[DailyMenuId], [m].[Description], [m].[Disponibility], [m].[Name], [m].[PictureURL], [m].[PortionId], [m].[Price]
+    FROM [OrderItems] AS [o1]
+    INNER JOIN [Meals] AS [m] ON [o1].[MealId] = [m].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+WHERE (((DATEPART(day, [o].[OrderDate]) = DATEPART(day, GETDATE())) AND (DATEPART(month, [o].[OrderDate]) = DATEPART(month, GETDATE()))) AND (DATEPART(year, [o].[OrderDate]) = DATEPART(year, GETDATE()))) AND ([o].[CanteenId] = @__canteenId_0)
+ORDER BY [o].[Id], [o0].[Id], [t].[Id]
+2023-05-24 19:58:59.390 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.OrderDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-24 19:58:59.426 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web) in 375.523ms
+2023-05-24 19:58:59.426 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 19:58:59.427 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 200 640834 application/json;+charset=utf-8 376.9064ms
+2023-05-24 19:59:15.046 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 19:59:15.047 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:59:15.047 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 204 - - 0.3733ms
+2023-05-24 19:59:15.048 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 19:59:15.048 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:59:15.048 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 19:59:15.049 +03:00 [INF] Route matched with {action = "GetOrdersForCanteen", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrdersForCanteen(Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 19:59:15.049 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:59:15.050 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - -
+2023-05-24 19:59:15.050 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:59:15.051 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - - - 204 - - 1.1799ms
+2023-05-24 19:59:15.053 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0
+2023-05-24 19:59:15.053 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:59:15.053 +03:00 [INF] Executing endpoint '/hubs/orders/negotiate'
+2023-05-24 19:59:15.054 +03:00 [INF] Executed endpoint '/hubs/orders/negotiate'
+2023-05-24 19:59:15.054 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0 - 200 316 application/json 1.0963ms
+2023-05-24 19:59:15.058 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/hubs/orders?id=YsDHD2VvhMBQq4EMTPzIag - -
+2023-05-24 19:59:15.058 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:59:15.058 +03:00 [INF] Executing endpoint '/hubs/orders'
+2023-05-24 19:59:15.062 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__canteenId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId], [o0].[Id], [o0].[OrderStatusName], [t].[Id], [t].[MealId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CanteenId], [t].[CategoryId], [t].[DailyMenuId], [t].[Description], [t].[Disponibility], [t].[Name], [t].[PictureURL], [t].[PortionId], [t].[Price]
+FROM [Orders] AS [o]
+INNER JOIN [OrderStatuses] AS [o0] ON [o].[StatusId] = [o0].[Id]
+LEFT JOIN (
+    SELECT [o1].[Id], [o1].[MealId], [o1].[OrderId], [o1].[Quantity], [m].[Id] AS [Id0], [m].[CanteenId], [m].[CategoryId], [m].[DailyMenuId], [m].[Description], [m].[Disponibility], [m].[Name], [m].[PictureURL], [m].[PortionId], [m].[Price]
+    FROM [OrderItems] AS [o1]
+    INNER JOIN [Meals] AS [m] ON [o1].[MealId] = [m].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+WHERE (((DATEPART(day, [o].[OrderDate]) = DATEPART(day, GETDATE())) AND (DATEPART(month, [o].[OrderDate]) = DATEPART(month, GETDATE()))) AND (DATEPART(year, [o].[OrderDate]) = DATEPART(year, GETDATE()))) AND ([o].[CanteenId] = @__canteenId_0)
+ORDER BY [o].[Id], [o0].[Id], [t].[Id]
+2023-05-24 19:59:15.334 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.OrderDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-24 19:59:15.363 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web) in 313.9309ms
+2023-05-24 19:59:15.363 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 19:59:15.363 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 200 640834 application/json;+charset=utf-8 315.1972ms
+2023-05-24 19:59:37.059 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 19:59:37.059 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:59:37.059 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 204 - - 0.4958ms
+2023-05-24 19:59:37.060 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 19:59:37.061 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:59:37.061 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 19:59:37.061 +03:00 [INF] Route matched with {action = "GetOrdersForCanteen", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrdersForCanteen(Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 19:59:37.062 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 19:59:37.062 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - -
+2023-05-24 19:59:37.063 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:59:37.063 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - - - 204 - - 0.3858ms
+2023-05-24 19:59:37.065 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0
+2023-05-24 19:59:37.066 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:59:37.066 +03:00 [INF] Executing endpoint '/hubs/orders/negotiate'
+2023-05-24 19:59:37.067 +03:00 [INF] Executed endpoint '/hubs/orders/negotiate'
+2023-05-24 19:59:37.067 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0 - 200 316 application/json 2.6027ms
+2023-05-24 19:59:37.070 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/hubs/orders?id=Phnh_2EXvgnt2AeUo6pv2A - -
+2023-05-24 19:59:37.070 +03:00 [INF] CORS policy execution successful.
+2023-05-24 19:59:37.071 +03:00 [INF] Executing endpoint '/hubs/orders'
+2023-05-24 19:59:37.075 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@__canteenId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId], [o0].[Id], [o0].[OrderStatusName], [t].[Id], [t].[MealId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CanteenId], [t].[CategoryId], [t].[DailyMenuId], [t].[Description], [t].[Disponibility], [t].[Name], [t].[PictureURL], [t].[PortionId], [t].[Price]
+FROM [Orders] AS [o]
+INNER JOIN [OrderStatuses] AS [o0] ON [o].[StatusId] = [o0].[Id]
+LEFT JOIN (
+    SELECT [o1].[Id], [o1].[MealId], [o1].[OrderId], [o1].[Quantity], [m].[Id] AS [Id0], [m].[CanteenId], [m].[CategoryId], [m].[DailyMenuId], [m].[Description], [m].[Disponibility], [m].[Name], [m].[PictureURL], [m].[PortionId], [m].[Price]
+    FROM [OrderItems] AS [o1]
+    INNER JOIN [Meals] AS [m] ON [o1].[MealId] = [m].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+WHERE (((DATEPART(day, [o].[OrderDate]) = DATEPART(day, GETDATE())) AND (DATEPART(month, [o].[OrderDate]) = DATEPART(month, GETDATE()))) AND (DATEPART(year, [o].[OrderDate]) = DATEPART(year, GETDATE()))) AND ([o].[CanteenId] = @__canteenId_0)
+ORDER BY [o].[Id], [o0].[Id], [t].[Id]
+2023-05-24 19:59:37.307 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.OrderDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-24 19:59:37.336 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web) in 274.2123ms
+2023-05-24 19:59:37.336 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 19:59:37.336 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 200 640834 application/json;+charset=utf-8 275.4477ms
+2023-05-24 20:00:06.059 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 20:00:06.059 +03:00 [INF] CORS policy execution successful.
+2023-05-24 20:00:06.060 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 204 - - 0.7622ms
+2023-05-24 20:00:06.061 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 20:00:06.061 +03:00 [INF] CORS policy execution successful.
+2023-05-24 20:00:06.062 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 20:00:06.062 +03:00 [INF] Route matched with {action = "GetOrdersForCanteen", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrdersForCanteen(Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 20:00:06.063 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 20:00:06.067 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - -
+2023-05-24 20:00:06.067 +03:00 [INF] CORS policy execution successful.
+2023-05-24 20:00:06.068 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - - - 204 - - 0.5981ms
+2023-05-24 20:00:06.069 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0
+2023-05-24 20:00:06.069 +03:00 [INF] CORS policy execution successful.
+2023-05-24 20:00:06.069 +03:00 [INF] Executing endpoint '/hubs/orders/negotiate'
+2023-05-24 20:00:06.070 +03:00 [INF] Executed endpoint '/hubs/orders/negotiate'
+2023-05-24 20:00:06.070 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/hubs/orders/negotiate?negotiateVersion=1 - 0 - 200 316 application/json 1.3529ms
+2023-05-24 20:00:06.075 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/hubs/orders?id=dMgsT12g6EtCALFsM7CmIQ - -
+2023-05-24 20:00:06.075 +03:00 [INF] CORS policy execution successful.
+2023-05-24 20:00:06.075 +03:00 [INF] Executing endpoint '/hubs/orders'
+2023-05-24 20:00:06.087 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[@__canteenId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId], [o0].[Id], [o0].[OrderStatusName], [t].[Id], [t].[MealId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CanteenId], [t].[CategoryId], [t].[DailyMenuId], [t].[Description], [t].[Disponibility], [t].[Name], [t].[PictureURL], [t].[PortionId], [t].[Price]
+FROM [Orders] AS [o]
+INNER JOIN [OrderStatuses] AS [o0] ON [o].[StatusId] = [o0].[Id]
+LEFT JOIN (
+    SELECT [o1].[Id], [o1].[MealId], [o1].[OrderId], [o1].[Quantity], [m].[Id] AS [Id0], [m].[CanteenId], [m].[CategoryId], [m].[DailyMenuId], [m].[Description], [m].[Disponibility], [m].[Name], [m].[PictureURL], [m].[PortionId], [m].[Price]
+    FROM [OrderItems] AS [o1]
+    INNER JOIN [Meals] AS [m] ON [o1].[MealId] = [m].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+WHERE (((DATEPART(day, [o].[OrderDate]) = DATEPART(day, GETDATE())) AND (DATEPART(month, [o].[OrderDate]) = DATEPART(month, GETDATE()))) AND (DATEPART(year, [o].[OrderDate]) = DATEPART(year, GETDATE()))) AND ([o].[CanteenId] = @__canteenId_0)
+ORDER BY [o].[Id], [o0].[Id], [t].[Id]
+2023-05-24 20:00:06.406 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.OrderDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-24 20:00:06.435 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web) in 373.2159ms
+2023-05-24 20:00:06.435 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 20:00:06.436 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 200 640834 application/json;+charset=utf-8 374.5170ms
+2023-05-24 20:00:32.097 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/UpdateOrderStatus?orderId=2&newOrderStatusId=2 - -
+2023-05-24 20:00:32.097 +03:00 [INF] CORS policy execution successful.
+2023-05-24 20:00:32.097 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/UpdateOrderStatus?orderId=2&newOrderStatusId=2 - - - 204 - - 0.2718ms
+2023-05-24 20:00:32.099 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57678/api/order/UpdateOrderStatus?orderId=2&newOrderStatusId=2 application/json 4
+2023-05-24 20:00:32.099 +03:00 [INF] CORS policy execution successful.
+2023-05-24 20:00:32.099 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.UpdateOrderStatus (CantinaUPT_API.Web)'
+2023-05-24 20:00:32.103 +03:00 [INF] Route matched with {action = "UpdateOrderStatus", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateOrderStatus(Int32, Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 20:00:32.107 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 20:00:32.119 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[OrderStatusName]
+FROM [OrderStatuses] AS [o]
+WHERE [o].[Id] = @__p_0
+2023-05-24 20:00:32.129 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId]
+FROM [Orders] AS [o]
+WHERE [o].[Id] = @__p_0
+2023-05-24 20:00:32.285 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32), @p3='?' (DbType = Double), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Orders] SET [CanteenId] = @p0, [OrderDate] = @p1, [StatusId] = @p2, [TotalPrice] = @p3, [UserId] = @p4
+WHERE [Id] = @p5;
+SELECT @@ROWCOUNT;
+2023-05-24 20:00:32.329 +03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-05-24 20:00:32.329 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.UpdateOrderStatus (CantinaUPT_API.Web) in 226.0758ms
+2023-05-24 20:00:32.329 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.UpdateOrderStatus (CantinaUPT_API.Web)'
+2023-05-24 20:00:32.330 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57678/api/order/UpdateOrderStatus?orderId=2&newOrderStatusId=2 application/json 4 - 200 - - 231.0309ms
+2023-05-24 20:00:32.334 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 20:00:32.334 +03:00 [INF] CORS policy execution successful.
+2023-05-24 20:00:32.334 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 204 - - 0.3901ms
+2023-05-24 20:00:32.335 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 20:00:32.335 +03:00 [INF] CORS policy execution successful.
+2023-05-24 20:00:32.336 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 20:00:32.336 +03:00 [INF] Route matched with {action = "GetOrdersForCanteen", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrdersForCanteen(Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 20:00:32.337 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 20:00:32.345 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__canteenId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId], [o0].[Id], [o0].[OrderStatusName], [t].[Id], [t].[MealId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CanteenId], [t].[CategoryId], [t].[DailyMenuId], [t].[Description], [t].[Disponibility], [t].[Name], [t].[PictureURL], [t].[PortionId], [t].[Price]
+FROM [Orders] AS [o]
+INNER JOIN [OrderStatuses] AS [o0] ON [o].[StatusId] = [o0].[Id]
+LEFT JOIN (
+    SELECT [o1].[Id], [o1].[MealId], [o1].[OrderId], [o1].[Quantity], [m].[Id] AS [Id0], [m].[CanteenId], [m].[CategoryId], [m].[DailyMenuId], [m].[Description], [m].[Disponibility], [m].[Name], [m].[PictureURL], [m].[PortionId], [m].[Price]
+    FROM [OrderItems] AS [o1]
+    INNER JOIN [Meals] AS [m] ON [o1].[MealId] = [m].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+WHERE (((DATEPART(day, [o].[OrderDate]) = DATEPART(day, GETDATE())) AND (DATEPART(month, [o].[OrderDate]) = DATEPART(month, GETDATE()))) AND (DATEPART(year, [o].[OrderDate]) = DATEPART(year, GETDATE()))) AND ([o].[CanteenId] = @__canteenId_0)
+ORDER BY [o].[Id], [o0].[Id], [t].[Id]
+2023-05-24 20:00:32.578 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.OrderDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-24 20:00:32.621 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web) in 284.7309ms
+2023-05-24 20:00:32.621 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 20:00:32.623 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 200 640830 application/json;+charset=utf-8 286.9664ms
+2023-05-24 20:00:36.435 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/order/UpdateOrderStatus?orderId=2&newOrderStatusId=3 - -
+2023-05-24 20:00:36.435 +03:00 [INF] CORS policy execution successful.
+2023-05-24 20:00:36.435 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/order/UpdateOrderStatus?orderId=2&newOrderStatusId=3 - - - 204 - - 0.3304ms
+2023-05-24 20:00:36.437 +03:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:57678/api/order/UpdateOrderStatus?orderId=2&newOrderStatusId=3 application/json 4
+2023-05-24 20:00:36.437 +03:00 [INF] CORS policy execution successful.
+2023-05-24 20:00:36.437 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.UpdateOrderStatus (CantinaUPT_API.Web)'
+2023-05-24 20:00:36.437 +03:00 [INF] Route matched with {action = "UpdateOrderStatus", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateOrderStatus(Int32, Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 20:00:36.438 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 20:00:36.441 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[OrderStatusName]
+FROM [OrderStatuses] AS [o]
+WHERE [o].[Id] = @__p_0
+2023-05-24 20:00:36.444 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId]
+FROM [Orders] AS [o]
+WHERE [o].[Id] = @__p_0
+2023-05-24 20:00:36.446 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32), @p3='?' (DbType = Double), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Orders] SET [CanteenId] = @p0, [OrderDate] = @p1, [StatusId] = @p2, [TotalPrice] = @p3, [UserId] = @p4
+WHERE [Id] = @p5;
+SELECT @@ROWCOUNT;
+2023-05-24 20:00:36.454 +03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-05-24 20:00:36.454 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.UpdateOrderStatus (CantinaUPT_API.Web) in 17.0023ms
+2023-05-24 20:00:36.455 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.UpdateOrderStatus (CantinaUPT_API.Web)'
+2023-05-24 20:00:36.455 +03:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:57678/api/order/UpdateOrderStatus?orderId=2&newOrderStatusId=3 application/json 4 - 200 - - 18.4602ms
+2023-05-24 20:00:36.510 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - -
+2023-05-24 20:00:36.510 +03:00 [INF] CORS policy execution successful.
+2023-05-24 20:00:36.511 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 20:00:36.511 +03:00 [INF] Route matched with {action = "GetOrdersForCanteen", controller = "Order", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrdersForCanteen(Int32) on controller CantinaUPT_API.Web.Controllers.OrderController (CantinaUPT_API.Web).
+2023-05-24 20:00:36.511 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-24 20:00:36.512 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__canteenId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[CanteenId], [o].[OrderDate], [o].[StatusId], [o].[TotalPrice], [o].[UserId], [o0].[Id], [o0].[OrderStatusName], [t].[Id], [t].[MealId], [t].[OrderId], [t].[Quantity], [t].[Id0], [t].[CanteenId], [t].[CategoryId], [t].[DailyMenuId], [t].[Description], [t].[Disponibility], [t].[Name], [t].[PictureURL], [t].[PortionId], [t].[Price]
+FROM [Orders] AS [o]
+INNER JOIN [OrderStatuses] AS [o0] ON [o].[StatusId] = [o0].[Id]
+LEFT JOIN (
+    SELECT [o1].[Id], [o1].[MealId], [o1].[OrderId], [o1].[Quantity], [m].[Id] AS [Id0], [m].[CanteenId], [m].[CategoryId], [m].[DailyMenuId], [m].[Description], [m].[Disponibility], [m].[Name], [m].[PictureURL], [m].[PortionId], [m].[Price]
+    FROM [OrderItems] AS [o1]
+    INNER JOIN [Meals] AS [m] ON [o1].[MealId] = [m].[Id]
+) AS [t] ON [o].[Id] = [t].[OrderId]
+WHERE (((DATEPART(day, [o].[OrderDate]) = DATEPART(day, GETDATE())) AND (DATEPART(month, [o].[OrderDate]) = DATEPART(month, GETDATE()))) AND (DATEPART(year, [o].[OrderDate]) = DATEPART(year, GETDATE()))) AND ([o].[CanteenId] = @__canteenId_0)
+ORDER BY [o].[Id], [o0].[Id], [t].[Id]
+2023-05-24 20:00:36.746 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.OrderDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-24 20:00:36.780 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web) in 269.6833ms
+2023-05-24 20:00:36.780 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.OrderController.GetOrdersForCanteen (CantinaUPT_API.Web)'
+2023-05-24 20:00:36.781 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/order/GetOrdersForCanteen?canteenId=2 - - - 200 640830 application/json;+charset=utf-8 270.5318ms
+2023-05-24 20:03:53.901 +03:00 [INF] Executed endpoint '/hubs/orders'
+2023-05-24 20:03:53.901 +03:00 [INF] Executed endpoint '/hubs/orders'
+2023-05-24 20:03:53.901 +03:00 [INF] Executed endpoint '/hubs/orders'
+2023-05-24 20:03:53.901 +03:00 [INF] Executed endpoint '/hubs/orders'
+2023-05-24 20:03:53.901 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/hubs/orders?id=dMgsT12g6EtCALFsM7CmIQ - - - 101 - - 227825.8508ms
+2023-05-24 20:03:53.901 +03:00 [INF] Executed endpoint '/hubs/orders'
+2023-05-24 20:03:53.901 +03:00 [INF] Executed endpoint '/hubs/orders'
+2023-05-24 20:03:53.901 +03:00 [INF] Executed endpoint '/hubs/orders'
+2023-05-24 20:03:53.901 +03:00 [INF] Executed endpoint '/hubs/orders'
+2023-05-24 20:03:53.901 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/hubs/orders?id=bGtRARslrvvH90g1Bri-xw - - - 101 - - 422815.9470ms
+2023-05-24 20:03:53.901 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/hubs/orders?id=WlWvyFP7Xxgv7gObCzVqYQ - - - 101 - - 420836.6074ms
+2023-05-24 20:03:53.901 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/hubs/orders?id=YsDHD2VvhMBQq4EMTPzIag - - - 101 - - 278843.0004ms
+2023-05-24 20:03:53.901 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/hubs/orders?id=Phnh_2EXvgnt2AeUo6pv2A - - - 101 - - 256830.6102ms
+2023-05-24 20:03:53.901 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/hubs/orders?id=eQBXTeZfuUj6Jyv0btZ68w - - - 101 - - 294817.6054ms
+2023-05-24 20:03:53.901 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/hubs/orders?id=kNxGl1cbrJbb23bfyYrZGA - - - 101 - - 637226.8343ms
+2023-05-24 20:03:53.901 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/hubs/orders?id=_HKCTP0xUq6JypcxSZkGSw - - - 101 - - 566807.1027ms

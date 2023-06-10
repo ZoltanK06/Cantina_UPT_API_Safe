@@ -1,0 +1,353 @@
+2023-04-07 18:25:16.180 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-07 18:25:17.645 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 18:25:18.204 +03:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-04-07 18:25:18.293 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-04-07 18:25:18.334 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 18:25:18.769 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-07 18:25:18.917 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-07 18:25:18.928 +03:00 [INF] Hosting environment: Development
+2023-04-07 18:25:18.929 +03:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2023-04-07 18:25:18.974 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-07 18:25:19.062 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-04-07 18:25:19.101 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-04-07 18:25:19.113 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2023-04-07 18:25:19.127 +03:00 [INF] Executing ViewResult, running view Index.
+2023-04-07 18:25:19.413 +03:00 [INF] Executed ViewResult - view Index executed in 288.0239ms.
+2023-04-07 18:25:19.419 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 305.6599ms
+2023-04-07 18:25:19.420 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-04-07 18:25:19.509 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 540.7918ms
+2023-04-07 18:25:19.577 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-07 18:25:19.577 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-07 18:25:19.588 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 10.2562ms
+2023-04-07 18:25:19.656 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 78.7603ms
+2023-04-07 18:25:58.548 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-04-07 18:25:58.633 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 84.9685ms
+2023-04-07 18:25:58.640 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-07 18:25:58.641 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 1.2704ms
+2023-04-07 18:25:58.654 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-07 18:25:58.686 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 31.7367ms
+2023-04-07 18:25:58.781 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2023-04-07 18:25:59.007 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 225.7701ms
+2023-04-07 18:26:24.247 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/auth/Register application/json-patch+json 129
+2023-04-07 18:26:24.294 +03:00 [INF] CORS policy execution failed.
+2023-04-07 18:26:24.294 +03:00 [INF] Request origin http://localhost:57678 does not have permission to access the resource.
+2023-04-07 18:26:24.295 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web)'
+2023-04-07 18:26:24.318 +03:00 [INF] Route matched with {action = "Register", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(CantinaUPT_API.Web.ApiModels.RegisterRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-07 18:26:24.555 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 18:26:24.763 +03:00 [INF] Executed DbCommand (66ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-07 18:26:24.795 +03:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2023-04-07 18:26:24.797 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web) in 479.4387ms
+2023-04-07 18:26:24.797 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web)'
+2023-04-07 18:26:24.803 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/auth/Register application/json-patch+json 129 - 400 - text/plain;+charset=utf-8 556.9676ms
+2023-04-07 18:26:31.306 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/auth/Register application/json-patch+json 129
+2023-04-07 18:26:31.308 +03:00 [INF] CORS policy execution failed.
+2023-04-07 18:26:31.308 +03:00 [INF] Request origin http://localhost:57678 does not have permission to access the resource.
+2023-04-07 18:26:31.308 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web)'
+2023-04-07 18:26:31.308 +03:00 [INF] Route matched with {action = "Register", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(CantinaUPT_API.Web.ApiModels.RegisterRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-07 18:26:31.310 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 18:26:31.316 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-07 18:26:31.318 +03:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2023-04-07 18:26:31.319 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web) in 10.299ms
+2023-04-07 18:26:31.319 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web)'
+2023-04-07 18:26:31.320 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/auth/Register application/json-patch+json 129 - 400 - text/plain;+charset=utf-8 13.1673ms
+2023-04-07 18:26:39.241 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/auth/Register application/json-patch+json 129
+2023-04-07 18:26:39.241 +03:00 [INF] CORS policy execution failed.
+2023-04-07 18:26:39.241 +03:00 [INF] Request origin http://localhost:57678 does not have permission to access the resource.
+2023-04-07 18:26:39.242 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web)'
+2023-04-07 18:26:39.242 +03:00 [INF] Route matched with {action = "Register", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(CantinaUPT_API.Web.ApiModels.RegisterRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-07 18:26:39.243 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 18:26:39.245 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-07 18:26:39.246 +03:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2023-04-07 18:26:39.247 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web) in 4.9952ms
+2023-04-07 18:26:39.247 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web)'
+2023-04-07 18:26:39.248 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/auth/Register application/json-patch+json 129 - 400 - text/plain;+charset=utf-8 6.2217ms
+2023-04-07 18:26:43.756 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/auth/Register application/json-patch+json 129
+2023-04-07 18:26:43.756 +03:00 [INF] CORS policy execution failed.
+2023-04-07 18:26:43.756 +03:00 [INF] Request origin http://localhost:57678 does not have permission to access the resource.
+2023-04-07 18:26:43.756 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web)'
+2023-04-07 18:26:43.756 +03:00 [INF] Route matched with {action = "Register", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(CantinaUPT_API.Web.ApiModels.RegisterRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-07 18:26:43.757 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 18:26:43.758 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-07 18:26:44.019 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 8000) (DbType = Binary), @p4='?' (Size = 8000) (DbType = Binary), @p5='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [PasswordHash], [PasswordSalt], [Username])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-04-07 18:26:44.102 +03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-04-07 18:26:44.102 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web) in 345.8041ms
+2023-04-07 18:26:44.102 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web)'
+2023-04-07 18:26:44.103 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/auth/Register application/json-patch+json 129 - 200 - - 347.5778ms
+2023-04-07 19:37:26.699 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-07 19:37:27.857 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 19:37:28.288 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-04-07 19:37:28.352 +03:00 [INF] Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-04-07 19:37:28.366 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 19:37:28.707 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-07 19:37:28.807 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-07 19:37:28.807 +03:00 [INF] Hosting environment: Development
+2023-04-07 19:37:28.807 +03:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2023-04-07 19:37:28.832 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-07 19:37:28.888 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-04-07 19:37:28.916 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-04-07 19:37:28.922 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2023-04-07 19:37:28.930 +03:00 [INF] Executing ViewResult, running view Index.
+2023-04-07 19:37:29.115 +03:00 [INF] Executed ViewResult - view Index executed in 185.4498ms.
+2023-04-07 19:37:29.122 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 199.4617ms
+2023-04-07 19:37:29.123 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-04-07 19:37:29.177 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 347.3818ms
+2023-04-07 19:37:29.240 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-07 19:37:29.240 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-07 19:37:29.250 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 9.4899ms
+2023-04-07 19:37:29.279 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 38.8809ms
+2023-04-07 19:37:32.789 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-04-07 19:37:32.855 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 65.8632ms
+2023-04-07 19:37:32.861 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-07 19:37:32.863 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 2.3859ms
+2023-04-07 19:37:32.885 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-07 19:37:32.927 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.7950ms
+2023-04-07 19:37:33.018 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2023-04-07 19:37:33.220 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 202.3082ms
+2023-04-07 19:37:55.001 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/auth/Login application/json-patch+json 71
+2023-04-07 19:37:55.039 +03:00 [INF] CORS policy execution failed.
+2023-04-07 19:37:55.039 +03:00 [INF] Request origin http://localhost:57678 does not have permission to access the resource.
+2023-04-07 19:37:55.040 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-07 19:37:55.054 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-07 19:37:55.405 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 19:37:55.650 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[Lastname], [u].[PasswordHash], [u].[PasswordSalt], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-07 19:37:55.682 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-04-07 19:37:55.684 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 629.0259ms
+2023-04-07 19:37:55.684 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-07 19:37:55.692 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/auth/Login application/json-patch+json 71 - 400 - text/plain;+charset=utf-8 690.8825ms
+2023-04-07 19:38:10.438 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/auth/Login application/json-patch+json 53
+2023-04-07 19:38:10.440 +03:00 [INF] CORS policy execution failed.
+2023-04-07 19:38:10.440 +03:00 [INF] Request origin http://localhost:57678 does not have permission to access the resource.
+2023-04-07 19:38:10.440 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-07 19:38:10.440 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-07 19:38:10.442 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 19:38:10.452 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[Lastname], [u].[PasswordHash], [u].[PasswordSalt], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-07 19:38:10.454 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-04-07 19:38:10.455 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 15.1709ms
+2023-04-07 19:38:10.455 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-07 19:38:10.456 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/auth/Login application/json-patch+json 53 - 400 - text/plain;+charset=utf-8 17.9700ms
+2023-04-07 19:38:20.437 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/auth/Login application/json-patch+json 59
+2023-04-07 19:38:20.437 +03:00 [INF] CORS policy execution failed.
+2023-04-07 19:38:20.437 +03:00 [INF] Request origin http://localhost:57678 does not have permission to access the resource.
+2023-04-07 19:38:20.438 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-07 19:38:20.438 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-07 19:38:20.442 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-04-07 19:38:20.549 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 110.9484ms
+2023-04-07 19:38:20.549 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-07 19:38:20.549 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/auth/Login application/json-patch+json 59 - 400 337 application/problem+json;+charset=utf-8 112.0188ms
+2023-04-07 19:39:12.696 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/auth/Register application/json-patch+json 127
+2023-04-07 19:39:12.697 +03:00 [INF] CORS policy execution failed.
+2023-04-07 19:39:12.697 +03:00 [INF] Request origin http://localhost:57678 does not have permission to access the resource.
+2023-04-07 19:39:12.700 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web)'
+2023-04-07 19:39:12.727 +03:00 [INF] Route matched with {action = "Register", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(CantinaUPT_API.Web.ApiModels.RegisterRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-07 19:39:12.742 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 19:39:12.763 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-07 19:39:13.004 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 8000) (DbType = Binary), @p4='?' (Size = 8000) (DbType = Binary), @p5='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Lastname], [PasswordHash], [PasswordSalt], [Username])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-04-07 19:39:13.106 +03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-04-07 19:39:13.106 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web) in 378.8206ms
+2023-04-07 19:39:13.106 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Register (CantinaUPT_API.Web)'
+2023-04-07 19:39:13.107 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/auth/Register application/json-patch+json 127 - 200 - - 411.3629ms
+2023-04-07 19:39:24.919 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/auth/Login application/json-patch+json 69
+2023-04-07 19:39:24.919 +03:00 [INF] CORS policy execution failed.
+2023-04-07 19:39:24.919 +03:00 [INF] Request origin http://localhost:57678 does not have permission to access the resource.
+2023-04-07 19:39:24.919 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-07 19:39:24.919 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-07 19:39:24.920 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 19:39:24.924 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[Lastname], [u].[PasswordHash], [u].[PasswordSalt], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-07 19:39:24.946 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-04-07 19:39:24.947 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 27.0316ms
+2023-04-07 19:39:24.947 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-07 19:39:24.947 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/auth/Login application/json-patch+json 69 - 400 - text/plain;+charset=utf-8 27.9151ms
+2023-04-07 19:39:30.871 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/auth/Login application/json-patch+json 72
+2023-04-07 19:39:30.871 +03:00 [INF] CORS policy execution failed.
+2023-04-07 19:39:30.871 +03:00 [INF] Request origin http://localhost:57678 does not have permission to access the resource.
+2023-04-07 19:39:30.872 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-07 19:39:30.872 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-07 19:39:30.874 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 19:39:30.876 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[Lastname], [u].[PasswordHash], [u].[PasswordSalt], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-07 19:39:31.638 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-07 19:39:31.638 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 766.2648ms
+2023-04-07 19:39:31.638 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-07 19:39:31.639 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/auth/Login application/json-patch+json 72 - 200 - text/plain;+charset=utf-8 767.5508ms
+2023-04-07 19:39:45.418 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/auth/Login application/json-patch+json 84
+2023-04-07 19:39:45.418 +03:00 [INF] CORS policy execution failed.
+2023-04-07 19:39:45.418 +03:00 [INF] Request origin http://localhost:57678 does not have permission to access the resource.
+2023-04-07 19:39:45.418 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-07 19:39:45.418 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-07 19:39:45.419 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 19:39:45.424 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[Lastname], [u].[PasswordHash], [u].[PasswordSalt], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-07 19:39:45.428 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-07 19:39:45.430 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 11.7881ms
+2023-04-07 19:39:45.430 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-07 19:39:45.431 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/auth/Login application/json-patch+json 84 - 200 - text/plain;+charset=utf-8 12.8676ms
+2023-04-07 19:44:06.055 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-07 19:44:07.406 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 19:44:07.894 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-04-07 19:44:07.949 +03:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-04-07 19:44:07.971 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 19:44:08.405 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-07 19:44:08.520 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-07 19:44:08.520 +03:00 [INF] Hosting environment: Development
+2023-04-07 19:44:08.520 +03:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2023-04-07 19:44:08.548 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-07 19:44:08.616 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-04-07 19:44:08.655 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-04-07 19:44:08.668 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2023-04-07 19:44:08.678 +03:00 [INF] Executing ViewResult, running view Index.
+2023-04-07 19:44:08.885 +03:00 [INF] Executed ViewResult - view Index executed in 208.7669ms.
+2023-04-07 19:44:08.892 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 223.4913ms
+2023-04-07 19:44:08.893 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-04-07 19:44:08.963 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 417.8292ms
+2023-04-07 19:44:09.041 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-07 19:44:09.041 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-07 19:44:09.050 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 8.0673ms
+2023-04-07 19:44:09.083 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 42.0485ms
+2023-04-07 19:44:27.387 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-04-07 19:44:27.461 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 74.3549ms
+2023-04-07 19:44:27.466 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-07 19:44:27.467 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 1.0382ms
+2023-04-07 19:44:27.485 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-07 19:44:27.517 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 32.2229ms
+2023-04-07 19:44:27.622 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2023-04-07 19:44:27.857 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 235.4277ms
+2023-04-07 19:44:42.040 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/auth/Login application/json-patch+json 72
+2023-04-07 19:44:42.041 +03:00 [INF] CORS policy execution failed.
+2023-04-07 19:44:42.042 +03:00 [INF] Request origin http://localhost:57678 does not have permission to access the resource.
+2023-04-07 19:44:42.042 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-07 19:44:42.064 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-07 19:44:42.428 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-07 19:44:42.669 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Firstname], [u].[Lastname], [u].[PasswordHash], [u].[PasswordSalt], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-07 19:44:42.938 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-07 19:44:42.939 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 875.3002ms
+2023-04-07 19:44:42.939 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-07 19:44:42.946 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/auth/Login application/json-patch+json 72 - 200 - text/plain;+charset=utf-8 906.5558ms

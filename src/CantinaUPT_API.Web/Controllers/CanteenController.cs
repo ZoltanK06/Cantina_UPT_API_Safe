@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using CantinaUPT_API.Core.Interfaces;
 using CantinaUPT_API.Core.ProjectAggregate;
+using CantinaUPT_API.SharedKernel.AppConstants;
 using CantinaUPT_API.Web.ApiModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CantinaUPT_API.Web.Controllers;
@@ -69,6 +71,7 @@ public class CanteenController : ControllerBase
 
   [HttpPost]
   [Route("AssignMealToCanteen")]
+  [Authorize(Roles = "Manager")]
   public async Task<IActionResult> AssignMealToCanteen([FromQuery]int canteenId,[FromBody] MealDTO mealDTO)
   {
     try
@@ -85,6 +88,7 @@ public class CanteenController : ControllerBase
 
   [HttpPost]
   [Route("AssignMealsToCanteen")]
+  [Authorize(Roles = "Manager")]
   public async Task<IActionResult> AssignMealsToCanteen([FromQuery] int canteenId, [FromBody] List<MealDTO> mealsDTO)
   {
     try
@@ -101,6 +105,7 @@ public class CanteenController : ControllerBase
 
   [HttpPost]
   [Route("AssignMealsByIdToCanteen")]
+  [Authorize(Roles = "Manager")]
   public async Task<IActionResult> AssignMealsByIdToCanteen([FromQuery] int canteenId, [FromBody] List<int> mealIds)
   {
     try
@@ -117,13 +122,14 @@ public class CanteenController : ControllerBase
 
   [HttpPost]
   [Route("AddCanteen")]
+  [Authorize(Roles = "Admin")]
   public async Task<IActionResult> AddCanteen([FromBody]CanteensDetailsDTO canteenDetailsDto)
   {
     try
     {
       var canteen = _mapper.Map<Canteen>(canteenDetailsDto);
-      canteen.Menus = new List<DailyMenu>();
-      canteen.Meals = new List<Meal>();
+      //canteen.Menus = new List<DailyMenu>();
+      //canteen.Meals = new List<Meal>();
       await _canteenService.AddCanteen(canteen);
       return Ok();
     }
@@ -135,6 +141,7 @@ public class CanteenController : ControllerBase
 
   [HttpDelete]
   [Route("DeleteCanteen/{id}")]
+  [Authorize(Roles = "Admin")]
   public async Task<IActionResult> DeleteCanteen(int id) 
   {
     try
@@ -149,8 +156,9 @@ public class CanteenController : ControllerBase
   }
 
   [HttpPut]
-  [Route("UpdateCanteen/")]
-  public async Task<IActionResult> UpdateCanteen(int id, CanteensDetailsDTO canteenDetails)
+  [Route("UpdateCanteen/{id}")]
+  [Authorize(Roles = "Admin")]
+  public async Task<IActionResult> UpdateCanteen(int id,[FromBody] CanteensDetailsDTO canteenDetails)
   {
     try
     {
@@ -162,6 +170,23 @@ public class CanteenController : ControllerBase
     {
       return StatusCode(StatusCodes.Status500InternalServerError);
     }
+  }
+
+  [HttpGet]
+  [Route("GetMealsOfCanteenByCategory")]
+  public async Task<IActionResult> GetMealsOfCanteenByCategory(int canteenId, int categoryId)
+  {
+    try
+    {
+      var meals = await _canteenService.GetMealsOfCanteenByCategory(canteenId, categoryId);
+      return Ok(new CanteenWithMealsByCategoryDTO(meals));
+    }
+    catch (Exception)
+    {
+      return StatusCode(StatusCodes.Status500InternalServerError);
+    }
+   
+
   }
 
 }

@@ -10,9 +10,10 @@ namespace CantinaUPT_API.Core.ProjectAggregate;
 public class Order : EntityBase, IAggregateRoot
 {
   public int UserId { get; set; }
+  public int CanteenId { get; set; }
   public DateTime OrderDate { get; set; }
   public OrderStatus Status { get; set; }
   public double TotalPrice { get; set; }
-  public List<CartItem> CartItems { get; set; }
+  public List<OrderItem> OrderItems { get; set; }
 
 }

@@ -9,13 +9,13 @@ public class CanteenWithMealsDTO
   public CanteenWithMealsDTO(List<Meal> meals)
   {
 
-    var categories = meals.Select(meal => meal.Category).Distinct();
+    //var categories = meals.Select(meal => meal.Category).Distinct();
 
-    foreach(Category category in categories)
-    {
-      var mealsOfCategory = meals.Where(meal => meal.Category == category);
-      FoodsCategorized newFoodsCategorized = new FoodsCategorized { title = category.ToString(), data = mealsOfCategory.ToList() };
-      foodsCategorized.Add(newFoodsCategorized);
-    }
+    //foreach(Category category in categories)
+    //{
+    //  var mealsOfCategory = meals.Where(meal => meal.Category == category);
+    //  FoodsCategorized newFoodsCategorized = new FoodsCategorized { title = category.CategoryName, data = mealsOfCategory.ToList() };
+    //  foodsCategorized.Add(newFoodsCategorized);
+    //}
   }
 }

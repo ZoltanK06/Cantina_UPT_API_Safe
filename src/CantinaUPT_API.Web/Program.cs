@@ -8,8 +8,12 @@ using CantinaUPT_API.Core.Services;
 using CantinaUPT_API.Infrastructure;
 using CantinaUPT_API.Infrastructure.Data;
 using CantinaUPT_API.Web;
+using CantinaUPT_API.Web.Hubs;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,23 +34,51 @@ builder.Services.AddDbContext(connectionString);
 builder.Services.AddControllersWithViews().AddNewtonsoftJson();
 builder.Services.AddRazorPages();
 
+builder.Services.AddSignalR();
+
 builder.Services.AddSwaggerGen(c =>
 {
   c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
   c.EnableAnnotations();
+  c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+  {
+    Description = "Jwt \"bearer {token}\"",
+    In = ParameterLocation.Header,
+    Name = "Authorization",
+    Type = SecuritySchemeType.ApiKey
+  });
+  c.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 
 builder.Services.AddScoped<IMealService, MealService>();
 builder.Services.AddScoped<ICanteenService, CanteenService>();
-builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IOrderItemService, OrderItemService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUserRoleService, UserRoleService>();
+builder.Services.AddScoped<IPortionService, PortionService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IOrderStatusService, OrderStatusService>();
+builder.Services.AddScoped<ICardService, CardService>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddCors(c => c.AddPolicy("corspolicy", build =>
 {
-  build.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:19006");
+  build.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+  build.AllowCredentials();
 }));
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+  .AddJwtBearer(options => {
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+      ValidateIssuerSigningKey = true,
+      IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value)),
+      ValidateIssuer = false,
+      ValidateAudience = false
+    };
+  });
 
 // add list services for diagnostic purposes - see https://github.com/ardalis/AspNetCoreStartupServices
 builder.Services.Configure<ServiceConfig>(config =>
@@ -84,6 +116,8 @@ app.UseHttpsRedirection();
 app.UseCors("corspolicy");
 app.UseStaticFiles();
 app.UseCookiePolicy();
+app.UseAuthentication();
+app.UseAuthorization();
 
 // Enable middleware to serve generated Swagger as a JSON endpoint.
 app.UseSwagger();
@@ -95,6 +129,7 @@ app.UseEndpoints(endpoints =>
 {
   endpoints.MapDefaultControllerRoute();
   endpoints.MapRazorPages();
+  endpoints.MapHub<OrderHub>("/hubs/orders");
 });
 
 // Seed Database

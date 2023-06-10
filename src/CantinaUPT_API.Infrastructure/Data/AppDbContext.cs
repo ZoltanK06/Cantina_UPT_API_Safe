@@ -22,12 +22,17 @@ public class AppDbContext : DbContext
   public DbSet<Project> Projects => Set<Project>();
 
   public DbSet<Meal> Meals => Set<Meal>();
-  public DbSet<Canteen> Canteens => Set<Canteen>();
-  public DbSet<Disponibility> Disponibilities => Set<Disponibility>();
+  public DbSet<Canteen> Canteens => Set<Canteen>(); 
   public DbSet<DailyMenu> DailyMenus => Set<DailyMenu>();
-  public DbSet<CartItem> CartItems => Set<CartItem>();
+  public DbSet<OrderItem> OrderItems => Set<OrderItem>();
   public DbSet<User> Users => Set<User>();
   public DbSet<Order> Orders => Set<Order>();
+  public DbSet<UserRoles> Roles => Set<UserRoles>();
+  public DbSet<Category> Categories => Set<Category>();
+  public DbSet<OrderStatus> OrderStatuses => Set<OrderStatus>();
+  public DbSet<Portion> Portions => Set<Portion>();
+  public DbSet<CategoryPictures> CategoryPictures => Set<CategoryPictures>();
+  public DbSet<Card> Cards => Set<Card>();
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {

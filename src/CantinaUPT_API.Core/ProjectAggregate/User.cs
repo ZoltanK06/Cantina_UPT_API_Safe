@@ -11,7 +11,9 @@ public class User : EntityBase, IAggregateRoot
 {
   public string Username { get; set; }
   public string Email { get; set; }
-  public string Password { get; set; }
-  public string Firstname { get; set; }
-  public string Lastname { get; set; }
+  public byte[] PasswordHash { get; set; }
+  public byte[] PasswordSalt { get; set; }
+  public UserRoles Role { get; set; }
+  public Canteen? Canteen { get; set; }
+  public List<Card> Cards { get; set; } = new List<Card>();
 }

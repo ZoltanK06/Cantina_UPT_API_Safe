@@ -19,6 +19,20 @@ public class OrderService : IOrderService
     _readRepository = readRepository;
     _repository = repository;
   }
+
+  public async Task<List<Order>> GetTodaysOrders()
+  {
+    var specification = new TodaysOrders();
+
+    return await _readRepository.ListAsync(specification);
+  }
+
+  public async Task<List<Order>> GetTodaysOrdersForCanteen(int canteenId)
+  {
+    var specification = new TodaysOrdersForCanteen(canteenId);
+
+    return await _readRepository.ListAsync(specification);
+  }
   
   public async Task<Order> GetUsersOrder(int userId)
   {
@@ -67,26 +81,6 @@ public class OrderService : IOrderService
     if(oldOrder != null)
     {
       oldOrder.Status = newStatus;
-
-      await _repository.UpdateAsync(oldOrder);
-      await _repository.SaveChangesAsync();
-    }
-    else
-    {
-      throw new Exception();
-    }
-  }
-
-  public async Task UpdateOrder(int oldOrderId, Order newOrder)
-  {
-    var oldOrder = await _readRepository.GetByIdAsync(oldOrderId);
-
-    if(oldOrder != null)
-    {
-      oldOrder.OrderDate = newOrder.OrderDate;
-      oldOrder.Status = newOrder.Status;
-      oldOrder.CartItems = newOrder.CartItems;
-      oldOrder.TotalPrice = newOrder.TotalPrice;
 
       await _repository.UpdateAsync(oldOrder);
       await _repository.SaveChangesAsync();

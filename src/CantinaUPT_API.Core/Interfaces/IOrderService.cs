@@ -12,5 +12,6 @@ public interface IOrderService
   Task<bool> AddOrder(Order order);
   Task DeleteOrder(int orderId);
   Task UpdateOrderStatus(int oldOrderId, OrderStatus newStatus);
-  Task UpdateOrder(int oldOrderId, Order newOrder);
+  Task<List<Order>> GetTodaysOrders();
+  Task<List<Order>> GetTodaysOrdersForCanteen(int canteenId);
 }

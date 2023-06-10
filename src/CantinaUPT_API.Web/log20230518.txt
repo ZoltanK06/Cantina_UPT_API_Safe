@@ -1,0 +1,73 @@
+2023-05-18 19:00:04.871 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-18 19:00:06.366 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-18 19:00:06.986 +03:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-18 19:00:07.113 +03:00 [INF] Executed DbCommand (101ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-05-18 19:00:07.158 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-18 19:00:07.567 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-18 19:00:07.647 +03:00 [INF] Creating key {815a1197-18d0-4024-9627-522624a6afb5} with creation date 2023-05-18 16:00:07Z, activation date 2023-05-20 09:27:35Z, and expiration date 2023-08-16 16:00:07Z.
+2023-05-18 19:00:07.654 +03:00 [INF] Writing data to file 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys\key-815a1197-18d0-4024-9627-522624a6afb5.xml'.
+2023-05-18 19:00:07.733 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-05-18 19:00:07.739 +03:00 [INF] Hosting environment: Development
+2023-05-18 19:00:07.739 +03:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2023-05-18 19:00:07.772 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-05-18 19:00:07.851 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-05-18 19:00:07.987 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-05-18 19:00:07.995 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2023-05-18 19:00:08.004 +03:00 [INF] Executing ViewResult, running view Index.
+2023-05-18 19:00:08.266 +03:00 [INF] Executed ViewResult - view Index executed in 260.4176ms.
+2023-05-18 19:00:08.273 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 276.9754ms
+2023-05-18 19:00:08.274 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-05-18 19:00:08.356 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/CantinaUPT_API.Web.styles.css?v=WEqNqzZ3UpuAc7H7SkjxwOizCgkYhlY1C00A3X0rFVs - -
+2023-05-18 19:00:08.362 +03:00 [INF] The file /CantinaUPT_API.Web.styles.css was not modified
+2023-05-18 19:00:08.366 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/CantinaUPT_API.Web.styles.css?v=WEqNqzZ3UpuAc7H7SkjxwOizCgkYhlY1C00A3X0rFVs - - - 304 - text/css 9.2106ms
+2023-05-18 19:00:08.367 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 599.0561ms
+2023-05-18 19:00:08.418 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-05-18 19:00:08.422 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-05-18 19:00:08.428 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 8.7875ms
+2023-05-18 19:00:08.502 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 79.5118ms
+2023-05-18 19:01:43.370 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/canteen/GetEveryCanteensDetails - -
+2023-05-18 19:01:43.393 +03:00 [INF] CORS policy execution successful.
+2023-05-18 19:01:43.394 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web)'
+2023-05-18 19:01:43.399 +03:00 [INF] Route matched with {action = "GetEveryCanteensDetails", controller = "Canteen", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEveryCanteensDetails() on controller CantinaUPT_API.Web.Controllers.CanteenController (CantinaUPT_API.Web).
+2023-05-18 19:01:43.591 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-18 19:01:43.691 +03:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Location], [c].[Name], [c].[PictureURL]
+FROM [Canteens] AS [c]
+2023-05-18 19:01:43.803 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.CanteensDetailsDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-18 19:01:43.939 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web) in 540.3068ms
+2023-05-18 19:01:43.940 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web)'
+2023-05-18 19:01:43.950 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/canteen/GetEveryCanteensDetails - - - 200 271 application/json;+charset=utf-8 580.5875ms
+2023-05-18 19:29:40.891 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/api/canteen/GetEveryCanteensDetails - -
+2023-05-18 19:29:40.897 +03:00 [INF] CORS policy execution successful.
+2023-05-18 19:29:40.897 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web)'
+2023-05-18 19:29:40.897 +03:00 [INF] Route matched with {action = "GetEveryCanteensDetails", controller = "Canteen", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEveryCanteensDetails() on controller CantinaUPT_API.Web.Controllers.CanteenController (CantinaUPT_API.Web).
+2023-05-18 19:29:40.898 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-05-18 19:29:40.923 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Location], [c].[Name], [c].[PictureURL]
+FROM [Canteens] AS [c]
+2023-05-18 19:29:40.941 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CantinaUPT_API.Web.ApiModels.CanteensDetailsDTO, CantinaUPT_API.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-18 19:29:40.942 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web) in 45.0684ms
+2023-05-18 19:29:40.943 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.CanteenController.GetEveryCanteensDetails (CantinaUPT_API.Web)'
+2023-05-18 19:29:40.943 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/api/canteen/GetEveryCanteensDetails - - - 200 271 application/json;+charset=utf-8 52.3017ms

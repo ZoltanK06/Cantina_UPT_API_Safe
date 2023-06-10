@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using Ardalis.Specification;
 
 namespace CantinaUPT_API.Core.ProjectAggregate.Specifications;
-public class CheckIfItemIsAlreadyInCart : Specification<CartItem>, ISingleResultSpecification
+public class CheckIfItemIsAlreadyInCart : Specification<OrderItem>, ISingleResultSpecification
 {
-  public CheckIfItemIsAlreadyInCart(CartItem cartItem)
+  public CheckIfItemIsAlreadyInCart(OrderItem cartItem)
   {
-    Query.Where(x => x.Meal == cartItem.Meal && x.UserId == 1);
+    Query.Where(x => x.Meal == cartItem.Meal);
   }
 }

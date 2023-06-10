@@ -10,5 +10,6 @@ public class CanteenProfile : Profile
   {
     this.CreateMap<Canteen, CanteensDetailsDTO>();
     this.CreateMap<CanteensDetailsDTO, Canteen>();
+    this.CreateMap<Canteen, CanteenNameDTO>();
   }
 }

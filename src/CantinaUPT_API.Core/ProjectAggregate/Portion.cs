@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CantinaUPT_API.SharedKernel;
+using CantinaUPT_API.SharedKernel.Interfaces;
 
 namespace CantinaUPT_API.Core.ProjectAggregate;
-public enum Portion
+public class Portion: EntityBase, IAggregateRoot
 {
-  Slice,
-  Piece,
-  Bowl,
-  Cup,
-  Serving
+  public string PortionName { get; set; }
 }

@@ -1,0 +1,604 @@
+2023-04-28 19:22:27.524 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-28 19:22:29.080 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:22:29.759 +03:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-04-28 19:22:29.846 +03:00 [INF] Executed DbCommand (58ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-04-28 19:22:29.869 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:22:30.368 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-28 19:22:30.564 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-28 19:22:30.564 +03:00 [INF] Hosting environment: Development
+2023-04-28 19:22:30.564 +03:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2023-04-28 19:22:30.606 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-28 19:22:30.685 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-04-28 19:22:30.832 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-04-28 19:22:30.841 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2023-04-28 19:22:30.852 +03:00 [INF] Executing ViewResult, running view Index.
+2023-04-28 19:22:31.102 +03:00 [INF] Executed ViewResult - view Index executed in 250.2151ms.
+2023-04-28 19:22:31.108 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 266.6624ms
+2023-04-28 19:22:31.109 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-04-28 19:22:31.198 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 597.5261ms
+2023-04-28 19:22:31.281 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-28 19:22:31.281 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-28 19:22:31.289 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 7.2940ms
+2023-04-28 19:22:31.359 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 77.5532ms
+2023-04-28 19:23:41.554 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:23:41.582 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:23:41.584 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 30.8760ms
+2023-04-28 19:23:41.589 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 53
+2023-04-28 19:23:41.590 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:23:41.590 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:23:41.605 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:23:41.918 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:23:42.155 +03:00 [INF] Executed DbCommand (79ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:23:42.187 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-04-28 19:23:42.191 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 586.1685ms
+2023-04-28 19:23:42.191 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:23:42.201 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 53 - 400 - text/plain;+charset=utf-8 612.0049ms
+2023-04-28 19:24:14.545 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:24:14.548 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:24:14.548 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 3.1084ms
+2023-04-28 19:24:14.549 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 58
+2023-04-28 19:24:14.550 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:24:14.550 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:24:14.550 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:24:14.553 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:24:14.570 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:24:14.754 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-28 19:24:14.754 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 203.9962ms
+2023-04-28 19:24:14.754 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:24:14.755 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 58 - 200 - text/plain;+charset=utf-8 205.4821ms
+2023-04-28 19:24:22.693 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:24:22.693 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:24:22.693 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 0.4834ms
+2023-04-28 19:24:22.694 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 58
+2023-04-28 19:24:22.695 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:24:22.772 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:24:22.772 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:24:22.772 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:24:22.775 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:24:22.779 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-28 19:24:22.780 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 7.7723ms
+2023-04-28 19:24:22.780 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:24:22.780 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 58 - 200 - text/plain;+charset=utf-8 85.3513ms
+2023-04-28 19:24:31.709 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:24:31.710 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:24:31.710 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 0.4559ms
+2023-04-28 19:24:31.711 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 58
+2023-04-28 19:24:31.711 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:24:31.712 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:24:31.712 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:24:31.713 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:24:31.715 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:24:31.718 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-28 19:24:31.718 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 6.242ms
+2023-04-28 19:24:31.719 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:24:31.719 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 58 - 200 - text/plain;+charset=utf-8 7.9012ms
+2023-04-28 19:24:35.106 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 58
+2023-04-28 19:24:35.106 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:24:35.106 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:24:35.106 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:24:35.107 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:24:35.110 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:24:35.113 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-28 19:24:35.114 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 7.7008ms
+2023-04-28 19:24:35.114 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:24:35.115 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 58 - 200 - text/plain;+charset=utf-8 9.1204ms
+2023-04-28 19:26:30.657 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-28 19:26:32.394 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:26:32.982 +03:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-04-28 19:26:33.061 +03:00 [INF] Executed DbCommand (49ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-04-28 19:26:33.086 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:26:33.483 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-28 19:26:33.593 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-28 19:26:33.593 +03:00 [INF] Hosting environment: Development
+2023-04-28 19:26:33.593 +03:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2023-04-28 19:26:33.625 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-28 19:26:33.684 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-04-28 19:26:33.789 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-04-28 19:26:33.795 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2023-04-28 19:26:33.803 +03:00 [INF] Executing ViewResult, running view Index.
+2023-04-28 19:26:33.985 +03:00 [INF] Executed ViewResult - view Index executed in 182.674ms.
+2023-04-28 19:26:33.992 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 196.7012ms
+2023-04-28 19:26:33.993 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-04-28 19:26:34.049 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 428.0600ms
+2023-04-28 19:26:34.109 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-28 19:26:34.111 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-28 19:26:34.123 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 11.0915ms
+2023-04-28 19:26:34.155 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.7102ms
+2023-04-28 19:27:02.209 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:27:02.233 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:27:02.235 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 26.7301ms
+2023-04-28 19:27:02.239 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 58
+2023-04-28 19:27:02.239 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:27:02.404 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:27:02.417 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:27:02.714 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:27:02.911 +03:00 [INF] Executed DbCommand (56ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:27:03.012 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2023-04-28 19:27:03.015 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 597.9749ms
+2023-04-28 19:27:03.015 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:27:03.022 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 58 - 200 - text/plain;+charset=utf-8 783.0790ms
+2023-04-28 19:27:06.415 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:27:06.419 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:27:06.420 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:27:06.420 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:27:06.422 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:27:06.431 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:27:06.432 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-04-28 19:27:06.432 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 12.429ms
+2023-04-28 19:27:06.432 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:27:06.433 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 400 - text/plain;+charset=utf-8 17.2257ms
+2023-04-28 19:27:53.799 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:27:53.799 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:27:53.800 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 0.6886ms
+2023-04-28 19:27:53.801 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:27:53.801 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:27:53.801 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:27:53.802 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:27:53.803 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:27:53.812 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:27:53.817 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-04-28 19:27:53.818 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 16.7526ms
+2023-04-28 19:27:53.819 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:27:53.819 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 400 - text/plain;+charset=utf-8 18.0939ms
+2023-04-28 19:27:55.044 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:27:55.045 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:27:55.045 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:27:55.045 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:27:55.046 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:27:55.050 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:27:55.051 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-04-28 19:27:55.056 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 10.6556ms
+2023-04-28 19:27:55.056 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:27:55.056 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 400 - text/plain;+charset=utf-8 11.7147ms
+2023-04-28 19:27:55.827 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:27:55.828 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:27:55.828 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:27:55.828 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:27:55.828 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:27:55.830 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:27:55.831 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-04-28 19:27:55.832 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 3.9887ms
+2023-04-28 19:27:55.832 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:27:55.832 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 400 - text/plain;+charset=utf-8 4.7381ms
+2023-04-28 19:28:11.416 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:28:11.416 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:28:11.417 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 0.5054ms
+2023-04-28 19:28:11.418 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:28:11.418 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:28:11.418 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:28:11.419 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:28:11.419 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:28:11.421 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:28:11.424 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-04-28 19:28:11.425 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 5.8984ms
+2023-04-28 19:28:11.425 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:28:11.425 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 400 - text/plain;+charset=utf-8 7.1409ms
+2023-04-28 19:29:06.325 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-28 19:29:07.579 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:29:08.003 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-04-28 19:29:08.058 +03:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-04-28 19:29:08.067 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:29:08.410 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-28 19:29:08.501 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-28 19:29:08.501 +03:00 [INF] Hosting environment: Development
+2023-04-28 19:29:08.501 +03:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2023-04-28 19:29:08.525 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-28 19:29:08.583 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-04-28 19:29:08.679 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-04-28 19:29:08.685 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2023-04-28 19:29:08.693 +03:00 [INF] Executing ViewResult, running view Index.
+2023-04-28 19:29:08.869 +03:00 [INF] Executed ViewResult - view Index executed in 176.8635ms.
+2023-04-28 19:29:08.876 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 190.2745ms
+2023-04-28 19:29:08.877 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-04-28 19:29:08.934 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 411.7560ms
+2023-04-28 19:29:09.007 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-28 19:29:09.007 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-28 19:29:09.016 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 8.3387ms
+2023-04-28 19:29:09.052 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.2209ms
+2023-04-28 19:29:10.125 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:29:10.128 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:29:10.130 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 4.7506ms
+2023-04-28 19:29:10.131 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:29:10.131 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:29:10.338 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:29:10.350 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:29:10.548 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:29:10.551 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:29:10.552 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:29:10.552 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:29:10.645 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:29:10.645 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:29:10.882 +03:00 [INF] Executed DbCommand (73ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:29:10.882 +03:00 [INF] Executed DbCommand (60ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:29:10.977 +03:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2023-04-28 19:29:10.977 +03:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2023-04-28 19:29:10.981 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 630.5035ms
+2023-04-28 19:29:10.981 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:29:10.981 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 428.7999ms
+2023-04-28 19:29:10.981 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:29:10.988 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 404 - text/plain;+charset=utf-8 439.4187ms
+2023-04-28 19:29:10.988 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 404 - text/plain;+charset=utf-8 856.7385ms
+2023-04-28 19:29:13.768 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:29:13.768 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:29:13.768 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:29:13.769 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:29:13.770 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:29:13.774 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:29:13.777 +03:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2023-04-28 19:29:13.778 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 8.7786ms
+2023-04-28 19:29:13.778 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:29:13.778 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 404 - text/plain;+charset=utf-8 10.2201ms
+2023-04-28 19:29:54.278 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-28 19:29:55.447 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:29:55.856 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-04-28 19:29:55.910 +03:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-04-28 19:29:55.928 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:29:56.271 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-28 19:29:56.360 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-28 19:29:56.360 +03:00 [INF] Hosting environment: Development
+2023-04-28 19:29:56.360 +03:00 [INF] Content root path: C:\Users\zkato\source\repos\CantinaUPT_API\src\CantinaUPT_API.Web\
+2023-04-28 19:29:56.390 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-28 19:29:56.448 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-04-28 19:29:56.541 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-04-28 19:29:56.548 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2023-04-28 19:29:56.556 +03:00 [INF] Executing ViewResult, running view Index.
+2023-04-28 19:29:56.738 +03:00 [INF] Executed ViewResult - view Index executed in 181.9738ms.
+2023-04-28 19:29:56.744 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 195.9732ms
+2023-04-28 19:29:56.745 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-04-28 19:29:56.811 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 425.0818ms
+2023-04-28 19:29:56.872 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-28 19:29:56.875 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-28 19:29:56.885 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 9.3413ms
+2023-04-28 19:29:56.910 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 37.3181ms
+2023-04-28 19:29:59.427 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:29:59.431 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:29:59.433 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 5.8323ms
+2023-04-28 19:29:59.434 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:29:59.435 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:29:59.607 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:29:59.619 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:29:59.885 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:30:00.091 +03:00 [INF] Executed DbCommand (54ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:30:00.184 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:30:00.188 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 568.646ms
+2023-04-28 19:30:00.188 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:30:00.194 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 401 - text/plain;+charset=utf-8 759.3516ms
+2023-04-28 19:30:01.350 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:30:01.353 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:30:01.353 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:30:01.353 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:30:01.355 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:30:01.362 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:30:01.363 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:30:01.364 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 10.1629ms
+2023-04-28 19:30:01.364 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:30:01.364 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 401 - text/plain;+charset=utf-8 14.1155ms
+2023-04-28 19:30:37.895 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:30:37.896 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:30:37.896 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 0.5216ms
+2023-04-28 19:30:37.897 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:30:37.897 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:30:37.897 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:30:37.898 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:30:37.898 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:30:37.906 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:30:37.914 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:30:37.915 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 17.2879ms
+2023-04-28 19:30:37.915 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:30:37.915 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 401 - text/plain;+charset=utf-8 18.5689ms
+2023-04-28 19:30:40.444 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:30:40.444 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:30:40.444 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:30:40.444 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:30:40.445 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:30:40.446 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:30:40.448 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:30:40.448 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 3.9743ms
+2023-04-28 19:30:40.448 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:30:40.449 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 401 - text/plain;+charset=utf-8 4.8666ms
+2023-04-28 19:30:40.917 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:30:40.917 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:30:40.917 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:30:40.917 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:30:40.918 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:30:40.919 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:30:40.920 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:30:40.921 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 4.0761ms
+2023-04-28 19:30:40.921 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:30:40.922 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 401 - text/plain;+charset=utf-8 4.9194ms
+2023-04-28 19:31:20.340 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:31:20.340 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:31:20.340 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 0.6258ms
+2023-04-28 19:31:20.341 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:31:20.342 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:31:20.342 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:31:20.342 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:31:20.344 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:31:20.356 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:31:20.365 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:31:20.366 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 24.2255ms
+2023-04-28 19:31:20.367 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:31:20.367 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 401 - text/plain;+charset=utf-8 25.5402ms
+2023-04-28 19:31:39.713 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:31:39.713 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:31:39.713 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 0.7267ms
+2023-04-28 19:31:39.718 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57
+2023-04-28 19:31:39.719 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:31:39.719 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:31:39.719 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:31:39.720 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:31:39.724 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:31:39.724 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:31:39.725 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 5.6524ms
+2023-04-28 19:31:39.725 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:31:39.725 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 57 - 401 - text/plain;+charset=utf-8 6.8364ms
+2023-04-28 19:34:28.849 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:34:28.849 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:34:28.850 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 0.3890ms
+2023-04-28 19:34:28.851 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 66
+2023-04-28 19:34:28.852 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:34:28.852 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:34:28.852 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:34:28.854 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:34:28.862 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:34:28.865 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:34:28.869 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 16.2308ms
+2023-04-28 19:34:28.870 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:34:28.870 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 66 - 401 - text/plain;+charset=utf-8 18.9643ms
+2023-04-28 19:34:33.147 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 62
+2023-04-28 19:34:33.147 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:34:33.148 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:34:33.148 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:34:33.148 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:34:33.150 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:34:33.151 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:34:33.152 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 4.2739ms
+2023-04-28 19:34:33.152 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:34:33.152 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 62 - 401 - text/plain;+charset=utf-8 5.1257ms
+2023-04-28 19:34:51.471 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:34:51.471 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:34:51.471 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 0.3298ms
+2023-04-28 19:34:51.472 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 58
+2023-04-28 19:34:51.472 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:34:51.473 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:34:51.473 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:34:51.473 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:34:51.475 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:34:51.476 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:34:51.477 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 4.1257ms
+2023-04-28 19:34:51.477 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:34:51.477 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 58 - 401 - text/plain;+charset=utf-8 5.0821ms
+2023-04-28 19:34:55.143 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 64
+2023-04-28 19:34:55.143 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:34:55.143 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:34:55.144 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:34:55.144 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:34:55.147 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:34:55.148 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:34:55.148 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 4.5699ms
+2023-04-28 19:34:55.148 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:34:55.148 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 64 - 401 - text/plain;+charset=utf-8 5.5360ms
+2023-04-28 19:35:01.203 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:35:01.203 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:35:01.204 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 0.3417ms
+2023-04-28 19:35:01.205 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 67
+2023-04-28 19:35:01.205 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:35:01.205 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:35:01.205 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:35:01.206 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:35:01.209 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:35:01.209 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:35:01.210 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 4.58ms
+2023-04-28 19:35:01.210 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:35:01.210 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 67 - 401 - text/plain;+charset=utf-8 5.6505ms
+2023-04-28 19:35:03.563 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 63
+2023-04-28 19:35:03.564 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:35:03.564 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:35:03.564 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:35:03.565 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:35:03.567 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:35:03.569 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:35:03.570 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 5.785ms
+2023-04-28 19:35:03.570 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:35:03.570 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 63 - 401 - text/plain;+charset=utf-8 6.8264ms
+2023-04-28 19:35:07.697 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:35:07.698 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:35:07.698 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 0.5477ms
+2023-04-28 19:35:07.699 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 61
+2023-04-28 19:35:07.699 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:35:07.700 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:35:07.700 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:35:07.701 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:35:07.702 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:35:07.705 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:35:07.706 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 5.8762ms
+2023-04-28 19:35:07.706 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:35:07.706 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 61 - 401 - text/plain;+charset=utf-8 6.8980ms
+2023-04-28 19:35:25.730 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - -
+2023-04-28 19:35:25.730 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:35:25.730 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Auth/Login - - - 204 - - 0.3195ms
+2023-04-28 19:35:25.731 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 61
+2023-04-28 19:35:25.731 +03:00 [INF] CORS policy execution successful.
+2023-04-28 19:35:25.732 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:35:25.732 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-04-28 19:35:25.732 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-04-28 19:35:25.734 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-04-28 19:35:25.735 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2023-04-28 19:35:25.736 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 3.9597ms
+2023-04-28 19:35:25.736 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-04-28 19:35:25.736 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json 61 - 401 - text/plain;+charset=utf-8 4.8170ms

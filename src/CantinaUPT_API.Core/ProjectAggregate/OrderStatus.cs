@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CantinaUPT_API.SharedKernel;
+using CantinaUPT_API.SharedKernel.Interfaces;
 
 namespace CantinaUPT_API.Core.ProjectAggregate;
-public enum OrderStatus
+public class OrderStatus: EntityBase, IAggregateRoot
 {
-  Preparing,
-  Prepared,
-  Taken
+  public string OrderStatusName { get; set; }
 }

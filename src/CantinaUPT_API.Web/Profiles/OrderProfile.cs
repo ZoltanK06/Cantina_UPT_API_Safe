@@ -9,6 +9,7 @@ public class OrderProfile : Profile
   public OrderProfile()
   {
     this.CreateMap<Order, OrderDTO>();
-    this.CreateMap<OrderDTO, Order>();
+    this.CreateMap<OrderDTO, Order>().ForMember(order => order.OrderItems, opt => opt.Ignore());
+    this.CreateMap<OrderItem, OrderItemDTO>();
   }
 }

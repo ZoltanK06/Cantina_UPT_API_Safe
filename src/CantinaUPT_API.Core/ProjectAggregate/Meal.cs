@@ -10,10 +10,11 @@ using System.ComponentModel;
 namespace CantinaUPT_API.Core.ProjectAggregate;
 public class Meal : EntityBase, IAggregateRoot
 {
-   public string Name { get; set; }
+  public string Name { get; set; }
   public string Description { get; set; }
   public double Price { get; set; }
   public string PictureURL { get; set; }
+  public bool Disponibility { get; set; } = true;
   public Portion Portion { get; set; }
   public Category Category { get; set; }
 }

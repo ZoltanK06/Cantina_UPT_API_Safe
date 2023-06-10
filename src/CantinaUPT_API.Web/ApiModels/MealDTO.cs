@@ -8,7 +8,10 @@ public class MealDTO
   public string Name { get; set; }
   public string Description { get; set; }
   public double Price { get; set; }
+  public string PictureURL { get; set; }
+  public bool Disponibility { get; set; }
+  public int CanteenId { get; set; }
 
-  public Portion Portion { get; set; }
-  public Category Category { get; set; }
+  public int PortionId { get; set; }
+  public int CategoryId { get; set; }
 }

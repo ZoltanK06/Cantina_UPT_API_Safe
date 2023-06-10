@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ardalis.Specification;
 using CantinaUPT_API.Core.Interfaces;
 using CantinaUPT_API.Core.ProjectAggregate;
 using CantinaUPT_API.Core.ProjectAggregate.Specifications;
@@ -22,6 +23,11 @@ public class CanteenService : ICanteenService
     _mealService = mealService;
   }
 
+  public async Task<Canteen> GetCanteenById(int canteenId)
+  {
+    return await _readRepository.GetByIdAsync(canteenId);
+  }
+
   public async Task<List<Canteen>> GetEveryCanteensDetails()
   {
     return await _readRepository.ListAsync();
@@ -31,6 +37,13 @@ public class CanteenService : ICanteenService
   {
     var specification = new CanteenWithMeals(canteenId);
     return await _readRepository.GetBySpecAsync(specification);
+  }
+
+  public async Task<List<Meal>> GetMealsOfCanteenByCategory(int canteenId, int categoryId)
+  {
+    var specification = new CanteenWithMeals(canteenId);
+    var canteen = await _readRepository.GetBySpecAsync(specification);
+    return canteen.Meals.FindAll(meal => meal.Category.Id == categoryId).OrderByDescending(meal => meal.Disponibility).ToList();
   }
 
   public async Task<Canteen> GetMenusOfCanteen(int canteenId)
@@ -97,7 +110,10 @@ public class CanteenService : ICanteenService
       throw new Exception();
     }
 
-    oldCanteen.PictureURL = canteen.PictureURL;
+    if(canteen.PictureURL != null)
+    {
+      oldCanteen.PictureURL = canteen.PictureURL;
+    }
     oldCanteen.Location = canteen.Location;
     oldCanteen.Name = canteen.Name;
 

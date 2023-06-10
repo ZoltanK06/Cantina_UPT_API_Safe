@@ -17,4 +17,6 @@ public interface ICanteenService
   Task AddCanteen(Canteen canteen);
   Task DeleteCanteen(int canteenId);
   Task UpdateCanteenDetails(int id, Canteen canteen);
+  Task<Canteen> GetCanteenById(int canteenId);
+  Task<List<Meal>> GetMealsOfCanteenByCategory(int canteenId, int categoryId);
 }

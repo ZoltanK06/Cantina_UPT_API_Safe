@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using CantinaUPT_API.Core.Interfaces;
@@ -23,7 +24,8 @@ public class MealService : IMealService
 
   public async Task<Meal> GetMeal(int id)
   {
-    return await _readRepository.GetByIdAsync(id);
+    var specification = new MealWithCategoryAndPortion(id);
+    return await _readRepository.GetBySpecAsync(specification);
   }
 
   public async Task<List<Meal>> GetAllMeals()
@@ -33,7 +35,13 @@ public class MealService : IMealService
 
   public async Task<List<Meal>> GetMealsByIds(List<int> mealIds)
   {
-    var specification = new MealsByIdList(mealIds);
+    var specification = new MealsWithCategoryAndPortion(mealIds);
+    return await _readRepository.ListAsync(specification);
+  }
+
+  public async Task<List<Meal>> GetOrderedMealsByIds(List<int> mealIds)
+  {
+    var specification = new OrderedMeals(mealIds);
     return await _readRepository.ListAsync(specification);
   }
 
@@ -44,10 +52,11 @@ public class MealService : IMealService
     await _repository.SaveChangesAsync();
   }
 
-  public async Task AddMeal(Meal meal)
+  public async Task<Meal> AddMeal(Meal meal)
   {
-    await _repository.AddAsync(meal);
+    var addedMeal = await _repository.AddAsync(meal);
     await _repository.SaveChangesAsync();
+    return addedMeal;
   }
 
   public async Task UpdateMeal(int id, Meal meal)
@@ -66,6 +75,19 @@ public class MealService : IMealService
 
     await _repository.UpdateAsync(oldMeal);
     await _repository.SaveChangesAsync(); 
+  }
+
+  public async Task ChangeDisponibility(int mealId)
+  {
+    var meal = await _readRepository.GetByIdAsync(mealId);
+    if (meal == null)
+    {
+      throw new NullReferenceException();
+    }
+
+    meal.Disponibility = !meal.Disponibility;
+    await _repository.UpdateAsync(meal);
+    await _repository.SaveChangesAsync();
   }
 
 

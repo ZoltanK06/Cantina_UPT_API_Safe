@@ -11,6 +11,6 @@ public class UsersOrder : Specification<Order>, ISingleResultSpecification
   public UsersOrder(int userId)
   {
     Query
-      .Where(order => order.UserId == userId && order.Status != OrderStatus.Taken);
+      .Where(order => order.UserId == userId && order.Status.OrderStatusName != "Taken").Include(order => order.Status).Include(order => order.OrderItems).ThenInclude(orderItem => orderItem.Meal);
   }
 }

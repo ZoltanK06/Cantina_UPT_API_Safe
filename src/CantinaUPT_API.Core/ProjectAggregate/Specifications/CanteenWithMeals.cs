@@ -11,6 +11,10 @@ public class CanteenWithMeals : Specification<Canteen>, ISingleResultSpecificati
 {
   public CanteenWithMeals(int canteenId)
   {
-    Query.Where(canteen => canteen.Id == canteenId).Include(canteen => canteen.Meals);
+    Query.Where(canteen => canteen.Id == canteenId)
+         .Include(canteen => canteen.Meals)
+         .ThenInclude(meal => meal.Category)
+         .Include(meal => meal.Meals)
+         .ThenInclude(meal => meal.Portion);
   }
 }
