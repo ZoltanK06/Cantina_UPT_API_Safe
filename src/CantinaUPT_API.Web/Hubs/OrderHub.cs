@@ -8,4 +8,9 @@ public class OrderHub: Hub
   {
     await Clients.All.SendAsync("RecieveOrder");
   }
+
+  public async Task UpdateOrder()
+  {
+    await Clients.All.SendAsync("SeeOrderStatus");
+  }
 }

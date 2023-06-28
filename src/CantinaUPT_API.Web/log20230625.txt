@@ -1,0 +1,100 @@
+2023-06-25 19:49:18.217 +03:00 [INF] User profile is available. Using 'C:\Users\zkato\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-25 19:49:19.310 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-06-25 19:49:19.683 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-25 19:49:19.720 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-06-25 19:49:19.730 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-06-25 19:49:20.032 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-06-25 19:49:20.131 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-25 19:49:20.132 +03:00 [INF] Hosting environment: Development
+2023-06-25 19:49:20.132 +03:00 [INF] Content root path: C:\Users\zkato\Source\Repos\Cantina_UPT_API_Safe\src\CantinaUPT_API.Web\
+2023-06-25 19:49:20.161 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-06-25 19:49:20.226 +03:00 [WRN] Failed to determine the https port for redirect.
+2023-06-25 19:49:20.321 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-06-25 19:49:20.328 +03:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CantinaUPT_API.Web.Controllers.HomeController (CantinaUPT_API.Web).
+2023-06-25 19:49:20.336 +03:00 [INF] Executing ViewResult, running view Index.
+2023-06-25 19:49:20.554 +03:00 [INF] Executed ViewResult - view Index executed in 218.0444ms.
+2023-06-25 19:49:20.559 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web) in 230.686ms
+2023-06-25 19:49:20.559 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.HomeController.Index (CantinaUPT_API.Web)'
+2023-06-25 19:49:20.599 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-06-25 19:49:20.599 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.min.css - -
+2023-06-25 19:49:20.599 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/CantinaUPT_API.Web.styles.css?v=WEqNqzZ3UpuAc7H7SkjxwOizCgkYhlY1C00A3X0rFVs - -
+2023-06-25 19:49:20.599 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+2023-06-25 19:49:20.599 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.min.js - -
+2023-06-25 19:49:20.604 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - -
+2023-06-25 19:49:20.616 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 458.0050ms
+2023-06-25 19:49:20.631 +03:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\zkato\source\repos\Cantina_UPT_API_Safe\src\CantinaUPT_API.Web\wwwroot\js\site.js'
+2023-06-25 19:49:20.631 +03:00 [INF] Sending file. Request path: '/CantinaUPT_API.Web.styles.css'. Physical path: 'C:\Users\zkato\source\repos\Cantina_UPT_API_Safe\src\CantinaUPT_API.Web\obj\Debug\net6.0\scopedcss\bundle\CantinaUPT_API.Web.styles.css'
+2023-06-25 19:49:20.632 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 200 230 application/javascript 33.2837ms
+2023-06-25 19:49:20.632 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/CantinaUPT_API.Web.styles.css?v=WEqNqzZ3UpuAc7H7SkjxwOizCgkYhlY1C00A3X0rFVs - - - 200 1135 text/css 33.2838ms
+2023-06-25 19:49:20.633 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-06-25 19:49:20.641 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-06-25 19:49:20.643 +03:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\zkato\source\repos\Cantina_UPT_API_Safe\src\CantinaUPT_API.Web\wwwroot\css\site.css'
+2023-06-25 19:49:20.643 +03:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\zkato\source\repos\Cantina_UPT_API_Safe\src\CantinaUPT_API.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2023-06-25 19:49:20.643 +03:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\zkato\source\repos\Cantina_UPT_API_Safe\src\CantinaUPT_API.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2023-06-25 19:49:20.644 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - - - 200 194 text/css 39.5420ms
+2023-06-25 19:49:20.644 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 10.8100ms
+2023-06-25 19:49:20.648 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 200 78474 application/javascript 49.1751ms
+2023-06-25 19:49:20.648 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.min.css - - - 200 162726 text/css 48.3378ms
+2023-06-25 19:49:20.654 +03:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\zkato\source\repos\Cantina_UPT_API_Safe\src\CantinaUPT_API.Web\wwwroot\lib\jquery\dist\jquery.min.js'
+2023-06-25 19:49:20.656 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.min.js - - - 200 89478 application/javascript 57.4198ms
+2023-06-25 19:49:20.698 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.6747ms
+2023-06-25 19:49:20.715 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/favicon.ico - -
+2023-06-25 19:49:20.721 +03:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\zkato\source\repos\Cantina_UPT_API_Safe\src\CantinaUPT_API.Web\wwwroot\favicon.ico'
+2023-06-25 19:49:20.721 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/favicon.ico - - - 200 5430 image/x-icon 5.7971ms
+2023-06-25 19:49:23.539 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - -
+2023-06-25 19:49:23.542 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - - - 301 - - 2.4696ms
+2023-06-25 19:49:23.543 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - -
+2023-06-25 19:49:23.591 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - - - 200 - text/html;charset=utf-8 47.7899ms
+2023-06-25 19:49:23.591 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-bundle.js - -
+2023-06-25 19:49:23.591 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui.css - -
+2023-06-25 19:49:23.591 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-standalone-preset.js - -
+2023-06-25 19:49:23.592 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-06-25 19:49:23.592 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-06-25 19:49:23.593 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12006 application/javascript;+charset=utf-8 0.9623ms
+2023-06-25 19:49:23.597 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-06-25 19:49:23.599 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui.css - - - 200 143943 text/css 7.2757ms
+2023-06-25 19:49:23.600 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-06-25 19:49:23.602 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-06-25 19:49:23.606 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-standalone-preset.js - - - 200 339486 application/javascript 14.2504ms
+2023-06-25 19:49:23.611 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.9358ms
+2023-06-25 19:49:23.624 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/swagger-ui-bundle.js - - - 200 1095087 application/javascript 32.9772ms
+2023-06-25 19:49:23.733 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - -
+2023-06-25 19:49:23.838 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 104.6689ms
+2023-06-25 19:49:35.629 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json-patch+json 75
+2023-06-25 19:49:35.630 +03:00 [INF] CORS policy execution failed.
+2023-06-25 19:49:35.631 +03:00 [INF] Request origin http://localhost:57678 does not have permission to access the resource.
+2023-06-25 19:49:35.631 +03:00 [INF] Executing endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-06-25 19:49:35.641 +03:00 [INF] Route matched with {action = "Login", controller = "Auth", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CantinaUPT_API.Web.ApiModels.LoginRequestDTO) on controller CantinaUPT_API.Web.Controllers.AuthController (CantinaUPT_API.Web).
+2023-06-25 19:49:35.863 +03:00 [INF] Entity Framework Core 6.0.8 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-06-25 19:49:36.059 +03:00 [INF] Executed DbCommand (41ms) [Parameters=[@__user_Username_0='?' (Size = 4000), @__user_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CanteenId], [u].[Email], [u].[PasswordHash], [u].[PasswordSalt], [u].[RoleId], [u].[Username], [r].[Id], [r].[RoleName], [c].[Id], [c].[Location], [c].[Name], [c].[PictureURL]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+LEFT JOIN [Canteens] AS [c] ON [u].[CanteenId] = [c].[Id]
+WHERE ([u].[Username] = @__user_Username_0) OR ([u].[Email] = @__user_Email_1)
+2023-06-25 19:49:36.225 +03:00 [INF] Executing OkObjectResult, writing value of type 'CantinaUPT_API.Core.ProjectAggregate.LoginResponse'.
+2023-06-25 19:49:36.254 +03:00 [INF] Executed action CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web) in 613.3697ms
+2023-06-25 19:49:36.254 +03:00 [INF] Executed endpoint 'CantinaUPT_API.Web.Controllers.AuthController.Login (CantinaUPT_API.Web)'
+2023-06-25 19:49:36.259 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:57678/api/Auth/Login application/json-patch+json 75 - 200 454 application/json;+charset=utf-8 630.1588ms
